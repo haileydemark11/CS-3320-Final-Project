@@ -1,0 +1,29 @@
+{
+  "name": "cs-3320-final-project",
+  "version": "1.0.0",
+  "description": "My personal art portfolio website",
+  "main": "src/app.mjs",
+  "scripts": {
+    "start": "node src/app.mjs",
+    "dev": "nodemon src/app.mjs", 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haileydemark11/CS-3320-Final-Project.git"
+  },
+  "keywords": [],
+  "author": "hailey demark",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/haileydemark11/CS-3320-Final-Project/issues"
+  },
+  "homepage": "https://github.com/haileydemark11/CS-3320-Final-Project#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

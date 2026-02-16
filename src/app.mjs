@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "../public")));
 
 // this section creates an API test route
-app.get("/api/hello", (request, response) => {
+app.get("/api/status", (request, response) => {
   response.json({
       message: "Hello, World!",
       project: "Hailey DeMark Art Portfolio",

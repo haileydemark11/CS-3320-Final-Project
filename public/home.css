@@ -1,10 +1,21 @@
-/* ===== Global Reset ===== */
+/* Global Reset to help consistent formatting */
 html, body {
   margin: 0;
   padding: 0;
 }
 
-/* ===== Top Header ===== */
+/* Code to resolve format and footer errors on about and contact pages */
+.simple-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.simple-page .page-content {
+  flex: 1;
+}
+
+/* Header */
 .site-header {
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
@@ -12,18 +23,21 @@ html, body {
 
 .header-inner {
   width: 100%;                 /* full width */
-  padding: 16px 24px;         /* space from edges */
+  padding: 16px 24px;         /* space from sides of the page */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-sizing: border-box;     /* ensures padding doesn't break layout */
+  box-sizing: border-box;     /* AI said tthis line would make sure the padding doesn't break layout ... not sure if necessary but it seemed to help with formatting */
 }
 
 .brand {
+  text-decoration: none;
+  color: inherit;
   font-size: 20px;
-  /* font-weight: 80; */
+  font-weight: 80; 
 }
 
+/* Navigation styles  */
 .nav {
   display: flex;
   gap: 22px;
@@ -39,12 +53,17 @@ html, body {
   text-decoration: underline;
 }
 
-/* ===== Page Wrapper ===== */
+.nav-link.active {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* Page Wrapper */
 .page {
   min-height: calc(100vh - 70px);
 }
 
-/* ===== Hero ===== */
+/*  Hero  */
 .hero {
   position: relative;
   height: 560px;
@@ -86,7 +105,7 @@ html, body {
   opacity: 0.95;
 }
 
-/* ===== Portfolio Preview ===== */
+/*  Portfolio Preview  */
 .portfolio-preview {
   max-width: 1100px;
   margin: 0 auto;
@@ -117,37 +136,40 @@ html, body {
   display: block;
 }
 
+/* "Portfolio" Button styling */
 .cta-row {
   display: flex;
   justify-content: center;
 }
 
 .cta-button {
-  border: none;
+  display: inline-block;
   background: #0b0f16;
   color: #ffffff;
   padding: 16px 70px;
-  border-radius: 10px;
-  font-size: 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  text-decoration: none;
   cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.cta-button:hover {
+  opacity: 0.9;
 }
 
 .cta-button:hover {
   opacity: 0.92;
 }
 
-
-/* ===== Footer + Wave (dip style like your reference) ===== */
+/*  Footer + Wave ... still needs work */
 .site-footer {
   position: relative;
   background: #d9d9d9;
   overflow: hidden;
-
-  /* controls overall footer height */
   padding: 140px 0 70px;
 }
 
-/* white "dip" sitting on top of the gray footer */
 .site-footer::before {
   content: "";
   position: absolute;
@@ -155,29 +177,25 @@ html, body {
   left: 50%;
   transform: translateX(-50%);
 
-  width: 130%;     /* bigger than screen = smoother curve */
+  width: 130%;     /* smoother curve */
   height: 180px;   /* controls curve depth */
 
-  background: #ffffff; /* matches your page background */
+  background: #ffffff; 
   border-radius: 0 0 100% 100%;
 }
 
-/* footer content */
+/* Footer styling */
 .footer-inner {
-  position: relative;
-  z-index: 1;
-
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
-
+  width: 100%;
+  padding: 0 42px;   
   display: flex;
   justify-content: space-between;
-  align-items: flex-end; /* content sits lower like reference */
+  align-items: flex-end;
+  box-sizing: border-box;
 }
 
 .footer-left {
-  font-size: 22px;
+  font-size: 20px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 

@@ -1,0 +1,59 @@
+.portfolio-title {
+  text-align: center;
+  font-size: 64px;
+  font-weight: 500;
+  margin: 70px 0 40px;
+}
+
+/* have to work on this:  */
+.divider-wave {
+  height: 24px;
+  width: 100%;
+  border-top: 2px solid rgba(0,0,0,0.12);
+  border-radius: 100% / 30px;
+  margin: 10px 0 40px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));    /* formatting was off so AI told me to fix with this line */ 
+  gap: 50px;
+  max-width: 1400px;
+  margin: 60px auto 120px;
+  padding: 0 40px;
+}
+
+.portfolio-item {
+  margin: 0;
+  text-align: center;
+}
+
+.portfolio-img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* size of the portfolio image headers */
+.portfolio-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;   
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+/* text styling  */
+.portfolio-caption {
+  margin-top: 18px;
+  font-size: 26px;
+}
+
+/* AI said lines 53-60 will make it responsive since I was having formatting issues for a while */
+@media (max-width: 1100px) {
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .portfolio-grid { grid-template-columns: 1fr; padding: 0 20px; }
+  .portfolio-title { font-size: 44px; }
+}

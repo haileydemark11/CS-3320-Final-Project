@@ -6,13 +6,29 @@ import { fileURLToPath } from "url";
 const app = express(); 
 const port = 8080; 
 
-
-// AI resources said these consts would be helpful for my art portfolio for the future to build correct file paths for ES modules
+// I had a server error when running and lines 10-11 fixed things: 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // website files from public folder 
 app.use(express.static(path.join(__dirname, "../public")));
+
+// pages
+app.get("/", (request, response) => {
+  response.sendFile(path.join(__dirname, "../public/home.html"));
+});
+
+app.get("/portfolio", (request, response) => {
+  response.sendFile(path.join(__dirname, "../public/portfolio.html"));
+});
+
+app.get("/about", (request, response) => {
+  response.sendFile(path.join(__dirname, "../public/about.html"));
+});
+
+app.get("/contact", (request, response) => {
+  response.sendFile(path.join(__dirname, "../public/contact.html"));
+});
 
 // this section creates an API test route
 app.get("/api/status", (request, response) => {

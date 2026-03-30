@@ -48,6 +48,26 @@
   font-size: 26px;
 }
 
+.portfolio-link {
+  display: block;
+  text-decoration: none;
+}
+
+.portfolio-text-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.portfolio-text-link:hover {
+  text-decoration: none; /* removes underline on hover */
+}
+
+.portfolio-link:hover .portfolio-img {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
 /* AI said lines 53-60 will make it responsive since I was having formatting issues for a while */
 @media (max-width: 1100px) {
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
@@ -56,4 +76,186 @@
 @media (max-width: 640px) {
   .portfolio-grid { grid-template-columns: 1fr; padding: 0 20px; }
   .portfolio-title { font-size: 44px; }
+}
+
+/* for the traditional art gallery grid  */
+.art-page {
+  padding: 70px 60px 100px;
+}
+
+.category-intro {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.category-description {
+  max-width: 760px;
+  margin: 12px auto 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.art-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 42px 28px;
+  align-items: start;
+}
+
+.art-card {
+  margin: 0;
+}
+
+.art-image {
+  width: 100%;
+  height: 320px;
+  object-fit: contain;
+  display: block;
+  background: #f3f3f1;
+}
+
+.art-caption {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.next-gallery-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 80px;
+}
+
+.next-gallery-link {
+  color: inherit;
+  text-decoration: none;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.next-gallery-link:hover {
+  opacity: 0.7;
+}
+
+.next-arrow {
+  margin-left: 14px;
+}
+
+/* for the digital art gallery  */
+.featured-project {
+  max-width: 900px;
+  margin: 90px auto 0;
+}
+
+.featured-media {
+  width: 100%;
+}
+
+.featured-video {
+  width: 100%;
+  display: block;
+}
+
+.featured-text {
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.gallery-nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 100px;
+  gap: 20px;
+}
+
+.gallery-nav-link {
+  color: inherit;
+  text-decoration: none;
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.gallery-nav-link:hover {
+  opacity: 0.7;
+}
+
+.gallery-arrow {
+  display: inline-block;
+  margin: 0 8px;
+}
+
+/* for the UI/UX page layout */
+.ux-project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 42px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ux-project-card {
+  display: grid;
+  grid-template-columns: minmax(320px, 460px) 1fr;
+  gap: 34px;
+  align-items: center;
+}
+
+.ux-project-image-link {
+  display: block;
+  text-decoration: none;
+}
+
+.ux-project-image {
+  width: 100%;
+  height: 320px;
+  object-fit: contain;
+  display: block;
+  background: #f3f3f1;
+}
+
+.ux-project-content {
+  max-width: 520px;
+}
+
+.ux-project-title {
+  margin: 0 0 14px;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.ux-project-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ux-project-title-link:hover {
+  opacity: 0.75;
+}
+
+.ux-project-description {
+  margin: 0 0 18px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.ux-project-link {
+  color: inherit;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.ux-project-link:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .ux-project-card {
+    grid-template-columns: 1fr;
+  }
+
+  .ux-project-content {
+    max-width: 100%;
+  }
 }

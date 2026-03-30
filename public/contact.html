@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="home.css" />
   </head>
 
-    <!-- start of the contact page ... just bare bones for now  -->
+    <!-- nav bar -->
   <body class="simple-page">
     <header class="site-header">
       <div class="header-inner">
@@ -20,9 +20,48 @@
       </div>
     </header>
 
-    <main class="page-content" style="padding: 100px 40px; text-align:center;">
-      <h1>Contact</h1>
-      <p>Email me at haileydemark@gmail.com</p>
+    <!-- main logic for the contact form  -->
+    <main class="page-content contact-page">
+      <section class="contact-card">
+        <h1 class="contact-title">Contact Me</h1>
+    
+        <form class="contact-form" action="/contact" method="POST">
+          <div class="contact-group">
+            <label class="contact-label">Name</label>
+    
+            <div class="contact-name-row">
+              <div class="contact-field">
+                <label for="firstName" class="contact-sub-label">First Name <span>(required)</span></label>
+                <input type="text" id="firstName" name="firstName" required />
+              </div>
+    
+              <div class="contact-field">
+                <label for="lastName" class="contact-sub-label">Last Name <span>(required)</span></label>
+                <input type="text" id="lastName" name="lastName" required />
+              </div>
+            </div>
+          </div>
+    
+          <div class="contact-group">
+            <label for="email" class="contact-label">Email <span>(required)</span></label>
+            <input type="email" id="email" name="email" required />
+          </div>
+    
+          <div class="contact-group">
+            <label for="phone" class="contact-label">Phone</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+    
+          <div class="contact-group">
+            <label for="message" class="contact-label">Subject <span>(required)</span></label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+    
+          <div class="contact-button-row">
+            <button type="submit" class="contact-submit">Submit</button>
+          </div>
+        </form>
+      </section>
     </main>
 
     <!-- Footer  -->

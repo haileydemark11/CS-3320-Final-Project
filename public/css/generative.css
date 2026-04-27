@@ -1,0 +1,69 @@
+/* generative art page styles */
+
+/* page gradient override */
+.gradient-gen { background: linear-gradient(160deg, #d8eef8 0%, #e0d5f0 50%, #f0d5e8 100%) !important; }
+
+.gallery-section { padding: 0.5rem var(--side) 2rem; max-width: 1400px; margin: 0 auto; }
+.section-divider {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,170,100,0.3), transparent);
+  margin: 4rem 0 3rem;
+}
+.subsection-label {
+  font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--text-light); margin-bottom: 1.5rem;
+}
+
+/* cards */
+.installations-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.install-card {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border-radius: 16px; overflow: hidden;
+  background: rgba(255,255,255,0.35);
+  border: 1px solid rgba(200,170,200,0.2);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+.install-card:hover { box-shadow: 0 20px 60px rgba(34,24,48,0.12); transform: translateY(-3px); }
+
+.install-video-wrap { position: relative; aspect-ratio: 16/9; background: #0e0a1a; overflow: hidden; }
+.install-video-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.install-info {
+  padding: 2.5rem; display: flex; flex-direction: column;
+  justify-content: center; gap: 1rem;
+}
+.install-eyebrow { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-light); }
+.install-title { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; line-height: 1; color: var(--text-dark); }
+.install-meta { font-size: 0.72rem; color: var(--text-light); letter-spacing: 0.05em; line-height: 1.6; }
+.install-desc { font-family: var(--serif); font-size: 1rem; font-style: italic; font-weight: 300; color: var(--text-mid); line-height: 1.65; }
+.install-btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--peach), var(--blush));
+  border: 1px solid rgba(200,170,100,0.25); border-radius: 100px;
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-dark); text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, gap 0.25s;
+  align-self: flex-start; margin-top: 0.5rem;
+}
+.install-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(248,200,128,0.35); gap: 0.85rem; }
+.install-btn-arrow { font-size: 1rem; }
+
+/* video grid  */
+.video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap); }
+.video-card { border-radius: 14px; overflow: hidden; }
+.video-frame { width: 100%; aspect-ratio: 16/9; background: #0e0a1a; border-radius: 14px; overflow: hidden; }
+.video-frame video { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 14px; }
+.video-caption { padding: 0.6rem 0.1rem 0.3rem; }
+.video-caption p { font-family: var(--serif); font-size: 0.92rem; color: var(--text-dark); line-height: 1.3; }
+.video-caption small { font-size: 0.68rem; color: var(--text-light); letter-spacing: 0.06em; display: block; margin-top: 0.15rem; }
+
+/* responsive */
+@media (max-width: 900px) {
+  .install-card { grid-template-columns: 1fr; }
+  .install-info { padding: 1.8rem; }
+}
+@media (max-width: 800px) {
+  .video-grid { grid-template-columns: 1fr; }
+}

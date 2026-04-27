@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/head', { title: 'Portfolio', extraCSS: ['portfolio.css'] }) %>
+</head>
+<body class="simple-page">
+
+  <%- include('include/header-nav', { currentPage: 'portfolio' }) %>
+
+  <main class="page-content">
+    <div class="portfolio-hero">
+      <h1 class="portfolio-title">My Work</h1>
+      <p class="portfolio-sub">Art, design, and code — all in one place.</p>
+    </div>
+
+    <section class="portfolio-grid" aria-label="Portfolio categories">
+
+      <figure class="portfolio-item">
+        <a href="/portfolio/traditional-art" class="portfolio-link">
+          <img class="portfolio-img" src="images/JOY_art.png" alt="Traditional art preview" />
+        </a>
+        <figcaption class="portfolio-caption">
+          <a href="/portfolio/traditional-art" class="portfolio-text-link">Traditional Art</a>
+        </figcaption>
+      </figure>
+
+      <figure class="portfolio-item">
+        <a href="/portfolio/digital-art" class="portfolio-link">
+          <img class="portfolio-img" src="images/sublime.png" alt="Digital art preview" />
+        </a>
+        <figcaption class="portfolio-caption">
+          <a href="/portfolio/digital-art" class="portfolio-text-link">Digital Art</a>
+        </figcaption>
+      </figure>
+
+      <figure class="portfolio-item">
+        <a href="/portfolio/uiux-design" class="portfolio-link">
+          <img class="portfolio-img" src="images/UIUX.png" alt="UI/UX design preview" />
+        </a>
+        <figcaption class="portfolio-caption">
+          <a href="/portfolio/uiux-design" class="portfolio-text-link">UI/UX Design</a>
+        </figcaption>
+      </figure>
+
+      <figure class="portfolio-item">
+        <a href="/portfolio/generative-art" class="portfolio-link">
+          <img class="portfolio-img" src="images/sun.png" alt="Generative art preview" />
+        </a>
+        <figcaption class="portfolio-caption">
+          <a href="/portfolio/generative-art" class="portfolio-text-link">Generative Art</a>
+        </figcaption>
+      </figure>
+
+    </section>
+  </main>
+
+  <%- include('include/footer') %>
+
+</body>
+</html>

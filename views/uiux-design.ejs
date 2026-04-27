@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/head', { title: 'UI/UX Design', extraCSS: ['uiux.css'] }) %>
+  <style>
+    .gradient-bg { background: linear-gradient(160deg, #fde8c0 0%, #e8d8f0 50%, #d8d0f0 100%); }
+    nav { background: rgba(253,232,192,0.85); border-bottom: 1px solid rgba(200,170,100,0.15); }
+  </style>
+</head>
+<body>
+<div class="gradient-bg"></div>
+
+<%- include('include/header-nav') %>
+
+<div class="page-hero">
+  <a href="/" class="back-link">&#8592; Back to Work</a>
+  <p class="page-eyebrow">03 &mdash; UI/UX Design</p>
+  <h1 class="page-title">UI/UX<br>Design</h1>
+  <p class="page-desc">Designed in Figma, from complex data platforms to AI-powered productivity apps. I focus on creating intuitive, user-centered experiences that solve real problems.</p>
+  <div class="page-tags">
+    <span class="tag">Figma</span>
+    <span class="tag">UX Research</span>
+    <span class="tag">Prototyping</span>
+    <span class="tag">Front-End Dev</span>
+    <span class="tag">React</span>
+  </div>
+</div>
+
+<div class="projects-section">
+  <div class="gallery-divider"></div>
+  <div class="project-cards">
+
+    <a href="/portfolio/uiux-design/democracy-viewer" class="proj-card">
+      <div class="proj-preview">
+        <img src="/images/uiux/DV/DVthumb.png" alt="Democracy Viewer">
+      </div>
+      <div class="proj-info">
+        <p class="proj-number">Case Study 01</p>
+        <h2 class="proj-name">Democracy Viewer</h2>
+        <p class="proj-desc">Redesigning a data visualization platform to make complex humanities research more accessible and intuitive for all users.</p>
+        <span class="proj-cta">View Case Study &#8594;</span>
+      </div>
+    </a>
+
+    <a href="/portfolio/uiux-design/smart-scheduler" class="proj-card">
+      <div class="proj-preview" style="background: linear-gradient(135deg, #fde8c0, #e8d8f0);">
+        <img src="/images/uiux/SS/SSthumb.png" alt="Smart Scheduler" style="object-fit:cover;width:100%;height:100%;">
+      </div>
+      <div class="proj-info">
+        <p class="proj-number">Case Study 02</p>
+        <h2 class="proj-name">Smart Scheduler</h2>
+        <p class="proj-desc">An AI-powered productivity app for students that consolidates fragmented digital life into a single intelligent hub.</p>
+        <span class="proj-cta">View Case Study &#8594;</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div class="page-nav">
+  <a href="/portfolio/digital-art" class="page-nav-link prev">
+    <span class="nav-arrow">&#8592;</span>
+    <div class="nav-text">
+      <span class="nav-label">Previous</span>
+      <span class="nav-name">Digital Art</span>
+    </div>
+  </a>
+  <a href="/portfolio/generative-art" class="page-nav-link next">
+    <div class="nav-text">
+      <span class="nav-label">Next</span>
+      <span class="nav-name">Generative Art</span>
+    </div>
+    <span class="nav-arrow">&#8594;</span>
+  </a>
+</div>
+
+<%- include('include/footer') %>
+</body>
+</html>

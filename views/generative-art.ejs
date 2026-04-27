@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/head', { title: 'Generative Art', extraCSS: ['generative.css'] }) %>
+  <style>
+    nav { background: rgba(216,238,248,0.85); border-bottom: 1px solid rgba(160,200,230,0.2); }
+  </style>
+</head>
+<body>
+<div class="gradient-bg gradient-gen"></div>
+
+<%- include('include/header-nav') %>
+
+<div class="page-hero">
+  <a href="/" class="back-link">&#8592; Back to Work</a>
+  <p class="page-eyebrow">04 &mdash; Generative Art</p>
+  <h1 class="page-title">Generative<br>Art</h1>
+  <p class="page-desc">I use code as a creative tool to build interactive multimedia installations and reactive audio visual systems. Using TouchDesigner, Sonic Pi, Blender, Photoshop, and more, I create immersive generative work that evolves in real time.</p>
+  <div class="page-tags">
+    <span class="tag">TouchDesigner</span>
+    <span class="tag">Adobe Photoshop</span>
+    <span class="tag">Sonic Pi</span>
+    <span class="tag">Ableton Live</span>
+    <span class="tag">Blender</span>
+  </div>
+</div>
+
+<div class="gallery-section">
+  <div class="gallery-divider"></div>
+
+  <p class="subsection-label">Installations</p>
+  <div class="installations-grid">
+
+    <div class="install-card">
+      <div class="install-video-wrap">
+        <video controls preload="none" poster="/images/generative/TreeofLifeSS.png">
+          <source src="/images/generative/treeoflife.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="install-info">
+        <span class="install-eyebrow">Installation &mdash; 2025</span>
+        <h2 class="install-title">Tree of Life</h2>
+        <p class="install-meta">TouchDesigner &middot; Sonic Pi &middot; Adobe Photoshop<br>SMU Meadows School of the Arts</p>
+        <p class="install-desc">An audio-reactive generative installation exploring the relationship between natural growth systems and live musical composition.</p>
+        <a href="/portfolio/generative-art/installation-tree-of-life" class="install-btn">View Installation <span class="install-btn-arrow">&#8599;</span></a>
+      </div>
+    </div>
+
+    <div class="install-card">
+      <div class="install-video-wrap">
+        <video controls preload="none" poster="/images/generative/flutterSS.png">
+          <source src="/images/generative/Flutter.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="install-info">
+        <span class="install-eyebrow">Installation &mdash; 2026</span>
+        <h2 class="install-title">Flutter</h2>
+        <p class="install-meta">TouchDesigner<br>SMU Meadows School of the Arts</p>
+        <p class="install-desc">A large-scale projected installation built around the emergent behavior of particle systems — thousands of agents following simple rules that together produce something that looks alive.</p>
+        <a href="/portfolio/generative-art/installation-flutter" class="install-btn">View Installation <span class="install-btn-arrow">&#8599;</span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-divider"></div>
+  <p class="subsection-label">Generative Works</p>
+  <div class="video-grid">
+
+    <div class="video-card">
+      <div class="video-frame">
+        <video controls preload="none" poster="/images/generative/watercolorSS.png">
+          <source src="/images/generative/watercolor.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-caption"><p>Watercolor</p><small>TouchDesigner &middot; 2026</small></div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-frame">
+        <video controls preload="none" poster="/images/generative/SublimeSS.png">
+          <source src="/images/generative/sublime.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-caption"><p>Sublime</p><small>TouchDesigner &middot; 2026</small></div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-frame">
+        <video controls preload="none" poster="/images/generative/lavalampSS.png">
+          <source src="/images/generative/lavalamp.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-caption"><p>Lava Lamp</p><small>TouchDesigner &middot; 2026</small></div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-frame">
+        <video controls preload="none" poster="/images/generative/spiralSS.png">
+          <source src="/images/generative/spiral.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-caption"><p>Spiral</p><small>TouchDesigner &middot; 2026</small></div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-frame">
+        <video controls preload="none" poster="/images/generative/starsSS.png">
+          <source src="/images/generative/stars.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-caption"><p>Stars</p><small>TouchDesigner &middot; 2026</small></div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-frame">
+        <video controls preload="none" poster="/images/generative/cometsSS.png">
+          <source src="/images/generative/comets.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-caption"><p>Comets</p><small>TouchDesigner &middot; 2026</small></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="page-nav">
+  <a href="/portfolio/uiux-design" class="page-nav-link prev">
+    <span class="nav-arrow">&#8592;</span>
+    <div class="nav-text">
+      <span class="nav-label">Previous</span>
+      <span class="nav-name">UI/UX Design</span>
+    </div>
+  </a>
+  <a href="/" class="page-nav-link next">
+    <div class="nav-text">
+      <span class="nav-label">Back to</span>
+      <span class="nav-name">All Work</span>
+    </div>
+    <span class="nav-arrow">&#8594;</span>
+  </a>
+</div>
+
+<%- include('include/footer') %>
+</body>
+</html>

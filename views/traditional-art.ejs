@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/head', { title: 'Traditional Art', extraCSS: ['gallery.css'] }) %>
+</head>
+<body>
+<div class="gradient-bg gradient-trad"></div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightboxDirect()">&times;</button>
+  <span class="lightbox-counter" id="lb-counter"></span>
+  <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation();shiftLightbox(-1)">&#8592;</button>
+  <div class="lightbox-img-wrap" onclick="event.stopPropagation()">
+    <img id="lb-img" src="" alt="">
+  </div>
+  <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation();shiftLightbox(1)">&#8594;</button>
+  <div class="lightbox-caption" onclick="event.stopPropagation()">
+    <p id="lb-title"></p><small id="lb-meta"></small>
+  </div>
+</div>
+
+<%- include('include/header-nav') %>
+
+<div class="page-hero">
+  <a href="/" class="back-link">&#8592; Back to Work</a>
+  <p class="page-eyebrow">01 &mdash; Traditional Art</p>
+  <h1 class="page-title">Traditional<br>Art</h1>
+  <p class="page-desc">I create drawings and paintings for the joy of it, working across a range of mediums with a focus on portraiture, realism, and bold, expressive color. My work is often rooted in sentiment, capturing meaningful people and moments. I am open to commissions.</p>
+  <div class="page-tags">
+    <span class="tag">Oil &amp; Acrylic Paint</span>
+    <span class="tag">Colored Pencil</span>
+    <span class="tag">Graphite</span>
+    <span class="tag">Charcoal</span>
+    <span class="tag">Chalk</span>
+  </div>
+</div>
+
+<div class="gallery-section">
+  <div class="gallery-divider"></div>
+
+  <p class="subsection-label">Oil &amp; Acrylic Paintings</p>
+  <div class="oil-grid">
+    <div class="art-card oil-p1" onclick="openLightbox(0)">
+      <div class="card-frame"><img src="/images/traditional/selfportrait.jpg" alt="Self Portrait" loading="lazy"></div>
+      <div class="card-caption"><p>Self Portrait</p><small>Water-mixable oil &middot; 2022</small></div>
+    </div>
+    <div class="art-card oil-wide" onclick="openLightbox(1)">
+      <div class="card-frame"><img src="/images/traditional/Maddie.png" alt="Maddie" loading="lazy"></div>
+      <div class="card-caption"><p>Maddie</p><small>Water-mixable oil &middot; 2026</small></div>
+    </div>
+    <div class="art-card oil-p2" onclick="openLightbox(2)">
+      <div class="card-frame"><img src="/images/traditional/Jack.png" alt="Jack" loading="lazy"></div>
+      <div class="card-caption"><p>Jack</p><small>Water-mixable oil &middot; 2026</small></div>
+    </div>
+    <div class="art-card oil-l2" onclick="openLightbox(4)">
+      <div class="card-frame"><img src="/images/traditional/hawaii.png" alt="Unfinished" loading="lazy"></div>
+      <div class="card-caption"><p>Unfinished</p><small>Acrylic paint &middot; 2022</small></div>
+    </div>
+    <div class="art-card oil-l3" onclick="openLightbox(11)">
+      <div class="card-frame"><img src="/images/traditional/stilllife.png" alt="Junk Drawer" loading="lazy"></div>
+      <div class="card-caption"><p>Junk Drawer</p><small>Acrylic paint &middot; 2021</small></div>
+    </div>
+  </div>
+
+  <p class="subsection-label">Colored Pencil</p>
+  <div class="cp-grid">
+    <div class="art-card" onclick="openLightbox(3)">
+      <div class="card-frame"><img src="/images/traditional/joy.png" alt="Joy" loading="lazy"></div>
+      <div class="card-caption"><p>Joy</p><small>Colored pencil &middot; 2019</small></div>
+    </div>
+    <div class="art-card" onclick="openLightbox(13)">
+      <div class="card-frame"><img src="/images/traditional/model.png" alt="Portrait" loading="lazy"></div>
+      <div class="card-caption"><p>Portrait</p><small>Colored pencil &middot; 2019</small></div>
+    </div>
+    <div class="art-card" onclick="openLightbox(14)">
+      <div class="card-frame"><img src="/images/traditional/DOb.png" alt="Dylan O'Brien" loading="lazy"></div>
+      <div class="card-caption"><p>Dylan O&rsquo;Brien</p><small>Colored pencil &middot; 2018</small></div>
+    </div>
+  </div>
+
+  <p class="subsection-label">Graphite, Charcoal &amp; Chalk</p>
+  <div class="gc-grid">
+    <div class="art-card" onclick="openLightbox(5)">
+      <div class="card-frame"><img src="/images/traditional/bones.png" alt="Bones" loading="lazy"></div>
+      <div class="card-caption"><p>Bones</p><small>Graphite &middot; 2022</small></div>
+    </div>
+    <div class="art-card" onclick="openLightbox(6)">
+      <div class="card-frame"><img src="/images/traditional/can.png" alt="Crushed" loading="lazy"></div>
+      <div class="card-caption"><p>Crushed</p><small>Chalk &middot; 2022</small></div>
+    </div>
+    <div class="art-card" onclick="openLightbox(7)">
+      <div class="card-frame"><img src="/images/traditional/cheese.png" alt="Smile Sketch" loading="lazy"></div>
+      <div class="card-caption"><p>Smile Sketch</p><small>Graphite &middot; 2022</small></div>
+    </div>
+    <div class="art-card" onclick="openLightbox(9)">
+      <div class="card-frame"><img src="/images/traditional/musclehand.png" alt="Top Hand Anatomy" loading="lazy"></div>
+      <div class="card-caption"><p>Top Hand Anatomy</p><small>Graphite &middot; 2022</small></div>
+    </div>
+    <div class="art-card" onclick="openLightbox(10)">
+      <div class="card-frame"><img src="/images/traditional/sidehand.png" alt="Side Hand Anatomy" loading="lazy"></div>
+      <div class="card-caption"><p>Side Hand Anatomy</p><small>Graphite &middot; 2022</small></div>
+    </div>
+    <div class="art-card" onclick="openLightbox(15)">
+      <div class="card-frame"><img src="/images/traditional/sidemuscle.png" alt="Side Muscle Anatomy" loading="lazy"></div>
+      <div class="card-caption"><p>Side Muscle Anatomy</p><small>Graphite &middot; 2022</small></div>
+    </div>
+    <div class="art-card" onclick="openLightbox(8)">
+      <div class="card-frame"><img src="/images/traditional/hand2.png" alt="Hand" loading="lazy"></div>
+      <div class="card-caption"><p>Hand</p><small>Charcoal &middot; 2022</small></div>
+    </div>
+    <div class="art-card" onclick="openLightbox(12)">
+      <div class="card-frame"><img src="/images/traditional/boot.png" alt="Cowboy" loading="lazy"></div>
+      <div class="card-caption"><p>Cowboy</p><small>Charcoal &middot; 2021</small></div>
+    </div>
+  </div>
+</div>
+
+<div class="next-section">
+  <a href="/portfolio/digital-art" class="next-section-link">
+    <div class="next-section-text">
+      <span class="next-section-label">Next</span>
+      <span class="next-section-name">Digital Art</span>
+    </div>
+    <span class="next-section-arrow">&#8594;</span>
+  </a>
+</div>
+
+<%- include('include/footer') %>
+
+<script>
+  const pieces = [
+    { src:'/images/traditional/selfportrait.jpg', title:'Self Portrait',       meta:'Water-mixable oil paint · 2022' },
+    { src:'/images/traditional/Maddie.png',        title:'Maddie',              meta:'Water-mixable oil paint · 2026' },
+    { src:'/images/traditional/Jack.png',          title:'Jack',                meta:'Water-mixable oil paint · 2026' },
+    { src:'/images/traditional/joy.png',           title:'Joy',                 meta:'Colored pencil · 2019' },
+    { src:'/images/traditional/hawaii.png',        title:'Unfinished',          meta:'Acrylic paint · 2022' },
+    { src:'/images/traditional/bones.png',         title:'Bones',               meta:'Graphite · 2022' },
+    { src:'/images/traditional/can.png',           title:'Crushed',             meta:'Chalk · 2022' },
+    { src:'/images/traditional/cheese.png',        title:'Smile Sketch',        meta:'Graphite · 2022' },
+    { src:'/images/traditional/hand2.png',         title:'Hand',                meta:'Charcoal · 2022' },
+    { src:'/images/traditional/musclehand.png',    title:'Top Hand Anatomy',    meta:'Graphite · 2022' },
+    { src:'/images/traditional/sidehand.png',      title:'Side Hand Anatomy',   meta:'Graphite · 2022' },
+    { src:'/images/traditional/stilllife.png',     title:'Junk Drawer',         meta:'Acrylic paint · 2021' },
+    { src:'/images/traditional/boot.png',          title:'Cowboy',              meta:'Charcoal · 2021' },
+    { src:'/images/traditional/model.png',         title:'Portrait',            meta:'Colored pencil · 2019' },
+    { src:'/images/traditional/DOb.png',           title:"Dylan O'Brien",       meta:'Colored pencil · 2018' },
+    { src:'/images/traditional/sidemuscle.png',    title:'Side Muscle Anatomy', meta:'Graphite · 2022' },
+  ];
+  let current = 0;
+  function openLightbox(i) { current=i; updateLightbox(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow='hidden'; }
+  function updateLightbox() { const p=pieces[current]; document.getElementById('lb-img').src=p.src; document.getElementById('lb-img').alt=p.title; document.getElementById('lb-title').textContent=p.title; document.getElementById('lb-meta').textContent=p.meta; document.getElementById('lb-counter').textContent=(current+1)+' / '+pieces.length; }
+  function shiftLightbox(dir) { current=(current+dir+pieces.length)%pieces.length; updateLightbox(); }
+  function closeLightbox(e) { if(e.target===document.getElementById('lightbox')) closeLightboxDirect(); }
+  function closeLightboxDirect() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
+  document.addEventListener('keydown', e => { const lb=document.getElementById('lightbox'); if(!lb.classList.contains('open')) return; if(e.key==='Escape') closeLightboxDirect(); if(e.key==='ArrowRight') shiftLightbox(1); if(e.key==='ArrowLeft') shiftLightbox(-1); });
+</script>
+</body>
+</html>

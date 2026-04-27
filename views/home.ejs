@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/head', { title: 'Hailey DeMark — Designer &amp; Developer', extraCSS: ['home.css'] }) %>
+  <style>
+    .nav-links { position: static; transform: none; margin-left: auto; }
+  </style>
+</head>
+<body>
+<div class="gradient-bg" id="gradientBg"></div>
+
+<nav>
+  <a href="/" class="nav-logo">Hailey DeMark</a>
+  <ul class="nav-links home-nav">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div id="hero">
+  <div class="hero-blob blob-1"></div>
+  <div class="hero-blob blob-2"></div>
+  <div class="hero-blob blob-3"></div>
+  <p class="hero-eyebrow">Portfolio &mdash; 2026</p>
+  <h1 class="hero-name">Hailey<br><em>DeMark</em></h1>
+  <p class="hero-tagline">Blending programming and art to design meaningful user experiences.</p>
+  <p class="hero-roles">Artist <span>&middot;</span> Designer <span>&middot;</span> Developer</p>
+  <div class="hero-cta">
+    <a href="#work" class="btn btn-primary">View My Work</a>
+    <a href="#contact" class="btn btn-outline">Get in Touch</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</div>
+
+<section id="work">
+  <div class="work-intro reveal">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">What I create</h2>
+    <p>From oil paintings to interactive Figma systems, my work lives at the intersection of art and technology. Click a category to explore my portfolio.</p>
+  </div>
+  <div class="project-categories reveal">
+
+    <a href="/portfolio/traditional-art" class="project-card card-trad">
+      <div class="card-bg"></div>
+      <div class="card-overlay"></div>
+      <span class="card-arrow">&#8599;</span>
+      <div class="card-content">
+        <p class="card-number">01</p>
+        <h3 class="card-title">Traditional Art</h3>
+        <p class="card-desc">Colored pencil, oil paint, charcoal &amp; graphite</p>
+      </div>
+    </a>
+
+    <a href="/portfolio/digital-art" class="project-card card-digital">
+      <div class="card-bg"></div>
+      <div class="card-overlay"></div>
+      <span class="card-arrow">&#8599;</span>
+      <div class="card-content">
+        <p class="card-number">02</p>
+        <h3 class="card-title">Digital Art</h3>
+        <p class="card-desc">Procreate, Photoshop &amp; Illustrator illustrations</p>
+      </div>
+    </a>
+
+    <a href="/portfolio/uiux-design" class="project-card card-uiux">
+      <div class="card-bg"></div>
+      <div class="card-overlay"></div>
+      <span class="card-arrow">&#8599;</span>
+      <div class="card-content">
+        <p class="card-number">03</p>
+        <h3 class="card-title">UI/UX Design</h3>
+        <p class="card-desc">Figma-designed apps and data platforms</p>
+      </div>
+    </a>
+
+    <a href="/portfolio/generative-art" class="project-card card-gen">
+      <div class="card-bg"></div>
+      <div class="card-overlay"></div>
+      <span class="card-arrow">&#8599;</span>
+      <div class="card-content">
+        <p class="card-number">04</p>
+        <h3 class="card-title">Generative Art</h3>
+        <p class="card-desc">TouchDesigner, Max8 &amp; Sonic Pi visuals and audio</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="about">
+  <div class="about-visual reveal">
+    <div class="about-gradient-box" style="padding:0; background-image:url('/images/aboutme.JPG'); background-size:120%; background-position:20% 90%; background-repeat:no-repeat; border-radius:24px;"></div>
+  </div>
+  <div class="about-text-block reveal">
+    <p class="section-label">About Me</p>
+    <h2 class="section-title">Art, code,<br><em style="font-family:var(--serif);font-style:italic;">and everything in between.</em></h2>
+    <p class="about-body">I'm a UI/UX designer and developer based in Dallas, Texas, graduating from Southern Methodist University in May 2026 with a dual degree in Computer Science and Creative Computing, and a Minor in Data Science.</p>
+    <p class="about-body">I've always approached technical problems through an artistic lens. Through designing front-end interfaces, building collaborative UX systems, and creating generative art in tools like TouchDesigner, I've learned how design and technology can work together to shape experiences that feel both meaningful and beautifully made.</p>
+    <div class="about-details">
+      <div class="detail-row"><span class="detail-label">Based in</span><span class="detail-value">Dallas, Texas</span></div>
+      <div class="detail-row"><span class="detail-label">Degree</span><span class="detail-value">Computer Science &amp; Creative Computing, SMU '26</span></div>
+      <div class="detail-row"><span class="detail-label">Focus</span><span class="detail-value">UI/UX Design, Front-End Dev, Art</span></div>
+      <div class="detail-row"><span class="detail-label">Tools</span><span class="detail-value">Figma, JavaScript/HTML/CSS, TouchDesigner, &amp; more!</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="contact">
+  <p class="section-label reveal">Let's Connect</p>
+  <h2 class="section-title reveal">Say hello.</h2>
+  <p class="contact-sub reveal">Open to opportunities, commissions, and conversations :)</p>
+  <div class="contact-links reveal">
+    <a href="mailto:haileydemark@gmail.com" class="contact-link contact-link-email">&#x2709;&nbsp; haileydemark@gmail.com</a>
+    <a href="https://www.linkedin.com/in/haileydemark" target="_blank" rel="noopener noreferrer" class="contact-link contact-link-linkedin">in&nbsp; LinkedIn</a>
+  </div>
+</section>
+
+<%- include('include/footer') %>
+
+<script>
+  const bg = document.getElementById('gradientBg');
+  window.addEventListener('scroll', () => {
+    const p = Math.min(window.scrollY / (document.body.scrollHeight - window.innerHeight), 1);
+    const r1 = Math.round(253-p*15), g1 = Math.round(240-p*25), b1 = Math.round(192-p*10);
+    const r2 = Math.round(224-p*10), g2 = Math.round(213-p*10), b2 = Math.round(240+p*5);
+    bg.style.background = 'linear-gradient(160deg,rgb('+r1+','+g1+','+b1+') 0%,#fde0d0 40%,rgb('+r2+','+g2+','+b2+') 100%)';
+  });
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+  }), {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

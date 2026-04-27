@@ -1,0 +1,116 @@
+/* art gallery pages
+   (traditional-art, digital-art) */
+
+/* page-specific gradient */
+.gradient-trad { background: linear-gradient(160deg, #fdf0c0 0%, #fde0d0 50%, #f8c880 100%) !important; }
+.gradient-digital { background: linear-gradient(160deg, #f0e8f8 0%, #e8d8f8 50%, #f8d8f0 100%) !important; }
+
+/* ── gallery  ── */
+.gallery-section { padding: 0.5rem var(--side) 2rem; max-width: 1400px; margin: 0 auto; }
+.subsection-label {
+  font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--text-light);
+  margin-bottom: 0.85rem; margin-top: 3rem;
+}
+
+/* ── base art card ── */
+.art-card {
+  cursor: zoom-in; border-radius: 10px; overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.23,1,0.32,1), box-shadow 0.35s ease;
+}
+.art-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(34,24,48,0.12); }
+.card-frame { width: 100%; overflow: hidden; border-radius: 10px; }
+.card-frame img { width: 100%; height: auto; display: block; transition: transform 0.45s cubic-bezier(0.23,1,0.32,1); }
+.art-card:hover .card-frame img { transform: scale(1.04); }
+.card-caption { padding: 0.5rem 0.1rem 0.15rem; }
+.card-caption p { font-family: var(--serif); font-size: 0.88rem; color: var(--text-dark); line-height: 1.3; }
+.card-caption small { font-size: 0.68rem; color: var(--text-light); letter-spacing: 0.05em; display: block; margin-top: 0.1rem; }
+
+/*  traditional art grid  */
+/* oil & acrylic: */
+.oil-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: var(--gap); align-items: start;
+}
+.oil-p1   { grid-column: 1; grid-row: 1; }
+.oil-p2   { grid-column: 1; grid-row: 2; }
+.oil-wide { grid-column: 2 / 4; grid-row: 1; }
+.oil-l2   { grid-column: 2; grid-row: 2; }
+.oil-l3   { grid-column: 3; grid-row: 2; }
+
+/* colored pencil*/
+.cp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); align-items: start; }
+
+/* graphite / charcoal / chalk */
+.gc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); align-items: start; }
+
+/*  digital art grids  */
+/* Procreate: 3 col */
+.procreate-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); align-items: start; }
+.procreate-grid .card-frame { height: 600px; }
+.procreate-grid .card-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+/* illustrator */
+.illustrator-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 0.8fr;
+  gap: var(--gap); align-items: start;
+}
+
+/* next page  */
+.next-section { max-width: 1400px; margin: 3rem auto 0; padding: 2rem var(--side) 4rem; }
+.next-section-link {
+  display: inline-flex; align-items: center; gap: 1rem;
+  text-decoration: none; color: var(--text-mid);
+  transition: color 0.25s, gap 0.3s;
+  border-top: 1px solid rgba(200,170,100,0.25);
+  padding-top: 1.5rem; width: 100%; justify-content: flex-end;
+}
+.next-section-link:hover { color: var(--text-dark); gap: 1.4rem; }
+.next-section-text { text-align: right; }
+.next-section-label { display: block; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.3rem; }
+.next-section-name { display: block; font-family: var(--serif); font-size: clamp(1.3rem, 2.5vw, 2rem); font-weight: 300; line-height: 1; }
+.next-section-arrow { font-size: 1.6rem; line-height: 1; flex-shrink: 0; transition: transform 0.3s ease; }
+.next-section-link:hover .next-section-arrow { transform: translateX(5px); }
+
+/* light box */
+.lightbox {
+  display: none; position: fixed; inset: 0; z-index: 999;
+  background: rgba(253,244,232,0.6);
+  backdrop-filter: blur(30px) saturate(1.3); -webkit-backdrop-filter: blur(30px) saturate(1.3);
+  align-items: center; justify-content: center; flex-direction: column;
+  padding: 2rem; cursor: zoom-out;
+}
+.lightbox.open { display: flex; animation: lbIn 0.25s ease; }
+@keyframes lbIn { from{opacity:0;} to{opacity:1;} }
+.lightbox-img-wrap { max-width: min(88vw,900px); max-height: 80vh; display: flex; align-items: center; justify-content: center; cursor: default; }
+.lightbox img { max-width: 100%; max-height: 78vh; border-radius: 12px; object-fit: contain; box-shadow: 0 8px 48px rgba(34,24,48,0.16), 0 2px 12px rgba(34,24,48,0.08); cursor: default; }
+.lightbox-caption { margin-top: 1.1rem; text-align: center; }
+.lightbox-caption p { font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--text-dark); }
+.lightbox-caption small { font-size: 0.7rem; color: var(--text-light); letter-spacing: 0.12em; display: block; margin-top: 0.25rem; text-transform: uppercase; }
+.lightbox-close { position: absolute; top: 1.4rem; right: 1.6rem; font-size: 1.4rem; color: var(--text-mid); cursor: pointer; background: none; border: none; line-height: 1; transition: color 0.2s; z-index: 1000; }
+.lightbox-close:hover { color: var(--text-dark); }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); font-size: 1.4rem; color: var(--text-mid); background: none; border: none; cursor: pointer; padding: 1rem 1.2rem; transition: color 0.2s; line-height: 1; z-index: 1000; }
+.lightbox-nav:hover { color: var(--text-dark); }
+.lightbox-prev { left: 0.5rem; }
+.lightbox-next { right: 0.5rem; }
+.lightbox-counter { position: absolute; top: 1.5rem; left: 50%; transform: translateX(-50%); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); }
+
+/*  responive  */
+@media (max-width: 900px) {
+  .oil-grid { grid-template-columns: 1fr 1fr; }
+  .oil-p1   { grid-column: 1; grid-row: 1; }
+  .oil-wide { grid-column: 2; grid-row: 1; }
+  .oil-p2   { grid-column: 1; grid-row: 2; }
+  .oil-l2   { grid-column: 2; grid-row: 2; }
+  .oil-l3   { grid-column: 1 / 3; grid-row: 3; }
+  .gc-grid  { grid-template-columns: repeat(2, 1fr); }
+  .illustrator-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .oil-grid, .cp-grid, .gc-grid, .procreate-grid { grid-template-columns: 1fr 1fr; }
+  .oil-p1, .oil-p2, .oil-wide, .oil-l2, .oil-l3 { grid-column: auto; grid-row: auto; }
+  .lightbox-nav { display: none; }
+}

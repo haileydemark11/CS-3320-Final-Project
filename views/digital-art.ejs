@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/head', { title: 'Digital Art', extraCSS: ['gallery.css'] }) %>
+  <style>
+    /* Digital-specific styles not in gallery.css */
+    .gradient-bg { background: linear-gradient(160deg, #f0e8f8 0%, #e8d8f8 50%, #f8d8f0 100%); }
+    nav { background: rgba(240,232,248,0.85); border-bottom: 1px solid rgba(180,160,210,0.2); }
+    .procreate-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); align-items: start; }
+    .procreate-grid .card-frame { height: 600px; }
+    .procreate-grid .card-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .illustrator-grid { display: grid; grid-template-columns: 1.6fr 0.8fr; gap: var(--gap); align-items: start; }
+    .video-section { padding: 0 var(--side) 2rem; max-width: 1400px; margin: 0 auto; }
+    .video-wrap { border-radius: 14px; overflow: hidden; background: #0e0a1a; }
+    .video-wrap video { width: 100%; display: block; border-radius: 14px; max-height: 72vh; object-fit: contain; }
+    .video-caption { margin-top: 0.7rem; }
+    .video-caption p { font-family: var(--serif); font-size: 0.92rem; color: var(--text-dark); }
+    .video-caption small { font-size: 0.68rem; color: var(--text-light); letter-spacing: 0.06em; display: block; margin-top: 0.15rem; }
+    @media (max-width: 900px) { .illustrator-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .procreate-grid { grid-template-columns: 1fr 1fr; } .procreate-grid .card-frame { height: auto; } .procreate-grid .card-frame img { height: auto; object-fit: cover; } }
+  </style>
+</head>
+<body>
+<div class="gradient-bg"></div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightboxDirect()">&times;</button>
+  <span class="lightbox-counter" id="lb-counter"></span>
+  <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation();shiftLightbox(-1)">&#8592;</button>
+  <div class="lightbox-img-wrap" onclick="event.stopPropagation()">
+    <img id="lb-img" src="" alt="">
+  </div>
+  <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation();shiftLightbox(1)">&#8594;</button>
+  <div class="lightbox-caption" onclick="event.stopPropagation()">
+    <p id="lb-title"></p><small id="lb-meta"></small>
+  </div>
+</div>
+
+<%- include('include/header-nav') %>
+
+<div class="page-hero">
+  <a href="/" class="back-link">&#8592; Back to Work</a>
+  <p class="page-eyebrow">02 &mdash; Digital Art</p>
+  <h1 class="page-title">Digital<br>Art</h1>
+  <p class="page-desc">All artwork is created using Procreate, Illustrator, and Processing, including original illustrations and game graphics designed and built by me.</p>
+  <div class="page-tags">
+    <span class="tag">Procreate</span>
+    <span class="tag">Adobe Photoshop</span>
+    <span class="tag">Adobe Illustrator</span>
+    <span class="tag">Hand-drawn</span>
+  </div>
+</div>
+
+<div class="gallery-section">
+  <div class="gallery-divider"></div>
+
+  <p class="subsection-label">Procreate</p>
+  <div class="procreate-grid">
+    <div class="art-card" onclick="openLightbox(0)">
+      <div class="card-frame"><img src="/images/digital/Nikko.png" alt="Nikko" loading="lazy"></div>
+      <div class="card-caption"><p>Nikko</p><small>Procreate &middot; 2025</small></div>
+    </div>
+    <div class="art-card" onclick="openLightbox(1)">
+      <div class="card-frame"><img src="/images/digital/Ponyo.png" alt="Ponyo" loading="lazy"></div>
+      <div class="card-caption"><p>Ponyo</p><small>Procreate &middot; 2025</small></div>
+    </div>
+    <div class="art-card" onclick="openLightbox(2)">
+      <div class="card-frame"><img src="/images/digital/JapanChurch.png" alt="Japanese Church" loading="lazy"></div>
+      <div class="card-caption"><p>Japanese Church</p><small>Procreate &middot; 2025</small></div>
+    </div>
+  </div>
+
+  <p class="subsection-label">Adobe Illustrator</p>
+  <div class="illustrator-grid">
+    <div class="art-card" onclick="openLightbox(3)">
+      <div class="card-frame"><img src="/images/digital/sun.png" alt="Beam" loading="lazy"></div>
+      <div class="card-caption"><p>Beam</p><small>Adobe Illustrator &middot; 2025</small></div>
+    </div>
+    <div class="art-card" onclick="openLightbox(4)">
+      <div class="card-frame"><img src="/images/digital/WildChild.png" alt="Wild Child" loading="lazy"></div>
+      <div class="card-caption"><p>Wild Child</p><small>Adobe Illustrator &middot; 2022</small></div>
+    </div>
+  </div>
+</div>
+
+<div class="video-section">
+  <div class="gallery-divider"></div>
+  <p class="subsection-label">Interactive Video Game</p>
+  <div class="video-wrap">
+    <video controls preload="none" poster="/images/digital/LOTRgame.png">
+      <source src="/images/digital/LOTR.mov" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="video-caption">
+    <p>Lord of the Rings Video Game</p>
+    <small>Game coded and played in Processing, Graphics drawn in Adobe Illustrator and Procreate &middot; 2025</small>
+  </div>
+</div>
+
+<div class="page-nav">
+  <a href="/portfolio/traditional-art" class="page-nav-link prev">
+    <span class="nav-arrow">&#8592;</span>
+    <div class="nav-text">
+      <span class="nav-label">Previous</span>
+      <span class="nav-name">Traditional Art</span>
+    </div>
+  </a>
+  <a href="/portfolio/uiux-design" class="page-nav-link next">
+    <div class="nav-text">
+      <span class="nav-label">Next</span>
+      <span class="nav-name">UI/UX Design</span>
+    </div>
+    <span class="nav-arrow">&#8594;</span>
+  </a>
+</div>
+
+<%- include('include/footer') %>
+
+<script>
+  const pieces = [
+    { src:'/images/digital/Nikko.png',      title:'Nikko',           meta:'Procreate · 2025' },
+    { src:'/images/digital/Ponyo.png',       title:'Ponyo',           meta:'Procreate · 2025' },
+    { src:'/images/digital/JapanChurch.png', title:'Japanese Church', meta:'Procreate · 2025' },
+    { src:'/images/digital/sun.png',         title:'Beam',            meta:'Adobe Illustrator · 2025' },
+    { src:'/images/digital/WildChild.png',   title:'Wild Child',      meta:'Adobe Illustrator · 2022' },
+  ];
+  let current = 0;
+  function openLightbox(i) { current=i; updateLightbox(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow='hidden'; }
+  function updateLightbox() { const p=pieces[current]; document.getElementById('lb-img').src=p.src; document.getElementById('lb-img').alt=p.title; document.getElementById('lb-title').textContent=p.title; document.getElementById('lb-meta').textContent=p.meta; document.getElementById('lb-counter').textContent=(current+1)+' / '+pieces.length; }
+  function shiftLightbox(dir) { current=(current+dir+pieces.length)%pieces.length; updateLightbox(); }
+  function closeLightbox(e) { if(e.target===document.getElementById('lightbox')) closeLightboxDirect(); }
+  function closeLightboxDirect() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
+  document.addEventListener('keydown', e => { const lb=document.getElementById('lightbox'); if(!lb.classList.contains('open')) return; if(e.key==='Escape') closeLightboxDirect(); if(e.key==='ArrowRight') shiftLightbox(1); if(e.key==='ArrowLeft') shiftLightbox(-1); });
+</script>
+</body>
+</html>

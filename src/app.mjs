@@ -1,80 +1,46 @@
-import express from 'express'; 
-// looked up these two imports to fit with my website requirements 
-import path from "path";
-import { fileURLToPath } from "url";
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const app = express(); 
-const port = 8080; 
+const app = express();
+const port = 8080;
 
-// I had a server error when running and lines 10-11 fixed things: 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname  = path.dirname(__filename);
 
-// website files from public folder 
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, '../public')));
 
-// pages
-// home page 
-app.get("/", (request, response) => {
-  response.sendFile(path.join(__dirname, "../public/home.html"));
-});
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '../views'));
 
-// portfolio page 
-app.get("/portfolio", (request, response) => {
-  response.sendFile(path.join(__dirname, "../public/portfolio.html"));
-});
+// Home — passes homeNav flag directly to the template
+app.get('/', (req, res) => res.render('home', { homeNav: true }));
 
-// portfolio page sections 
-// traditional art page 
-app.get("/portfolio/traditional-art", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/traditional-art.html"));
-});
+// Portfolio hub
+app.get('/portfolio', (req, res) => res.render('portfolio', { homeNav: false }));
 
-// digital art page 
-app.get("/portfolio/digital-art", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/digital-art.html"));
-});
+// Gallery pages
+app.get('/portfolio/traditional-art', (req, res) => res.render('traditional-art', { homeNav: false }));
+app.get('/portfolio/digital-art',     (req, res) => res.render('digital-art',     { homeNav: false }));
+app.get('/portfolio/generative-art',  (req, res) => res.render('generative-art',  { homeNav: false }));
 
-// UI/UX design page 
-app.get("/portfolio/uiux-design", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/uiux-design.html"));
-});
+// UI/UX hub + case studies
+app.get('/portfolio/uiux-design',                  (req, res) => res.render('uiux-design',       { homeNav: false }));
+app.get('/portfolio/uiux-design/democracy-viewer', (req, res) => res.render('democracy-viewer',  { homeNav: false }));
+app.get('/portfolio/uiux-design/smart-scheduler',  (req, res) => res.render('smart-scheduler',   { homeNav: false }));
 
-// Subpages within the UI/UX portfolio page
-// smart scheduler project
-app.get("/portfolio/uiux-design/smart-scheduler", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/smart-scheduler.html"));
-});
+// Generative installations
+app.get('/portfolio/generative-art/installation-tree-of-life', (req, res) => res.render('installation-tree-of-life', { homeNav: false }));
+app.get('/portfolio/generative-art/installation-flutter',      (req, res) => res.render('installation-flutter',      { homeNav: false }));
 
-// democracy viewer project
-app.get("/portfolio/uiux-design/democracy-viewer", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/democracy-viewer.html"));
-});
+// About & Contact
+app.get('/about',   (req, res) => res.render('about',   { homeNav: false }));
+app.get('/contact', (req, res) => res.render('contact', { homeNav: false }));
 
-// gerneative art page 
-app.get("/portfolio/generative-art", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/generative-art.html"));
-});
-
-
-app.get("/about", (request, response) => {
-  response.sendFile(path.join(__dirname, "../public/about.html"));
-});
-
-app.get("/contact", (request, response) => {
-  response.sendFile(path.join(__dirname, "../public/contact.html"));
-});
-
-// this section creates an API test route
-app.get("/api/status", (request, response) => {
-  response.json({
-      message: "Hello, World!",
-      project: "Hailey DeMark Art Portfolio",
-      status: "Server is working correctly"
-  });
+app.get('/api/status', (req, res) => {
+  res.json({ message: 'Hello, World!', project: 'Hailey DeMark Art Portfolio', status: 'Server is working correctly' });
 });
 
 app.listen(port, () => {
-    console.log(`Application listening at http://localhost:${port}`);   
-})
-
+  console.log(`Application listening at http://localhost:${port}`);
+});

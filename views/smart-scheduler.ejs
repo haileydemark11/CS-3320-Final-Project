@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/head', { title: 'Smart Scheduler', extraCSS: [] }) %>
+  <style>
+    .gradient-bg { background: linear-gradient(160deg, #fde8c0 0%, #e8d8f0 50%, #d8d0f0 100%); }
+    nav { background: rgba(253,232,192,0.85); border-bottom: 1px solid rgba(200,170,100,0.15); justify-content: space-between; }
+    .nav-links { position: static; transform: none; margin-left: auto; }
+
+    /* PAGE HERO */
+    .page-hero { padding: 9rem var(--side) 4rem; max-width: 1400px; margin: 0 auto; }
+    .case-eyebrow { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.7rem; }
+    .case-title { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 6rem); font-weight: 300; line-height: 0.95; color: var(--text-dark); margin-bottom: 1.5rem; }
+    .case-subtitle { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-light); margin-bottom: 1.8rem; }
+    .case-intro { font-family: var(--serif); font-size: clamp(1rem, 1.8vw, 1.25rem); font-style: italic; font-weight: 300; color: var(--text-mid); max-width: 620px; line-height: 1.7; margin-bottom: 2rem; }
+
+    /* BODY */
+    .case-body { padding: 0 var(--side) 6rem; max-width: 1400px; margin: 0 auto; }
+    .gallery-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(200,170,100,0.3), transparent); margin-bottom: 4rem; }
+
+    /* HERO SHOT */
+    .wireframe-hero { margin-bottom: 5rem; border-radius: 20px; overflow: hidden; cursor: zoom-in; transition: box-shadow 0.35s ease; }
+    .wireframe-hero:hover { box-shadow: 0 24px 60px rgba(74,56,96,0.14); }
+    .wireframe-hero img { width: 100%; display: block; border-radius: 20px; }
+
+    /* CASE SECTIONS */
+    .case-section { margin-bottom: 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .case-section.reverse .section-meta { order: 2; }
+    .case-section.reverse .section-visuals { order: 1; }
+    .section-meta { position: sticky; top: 6rem; }
+    .section-number { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.5rem; }
+    .section-name { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 300; color: var(--text-dark); line-height: 1.1; margin-bottom: 1rem; }
+    .section-desc { font-size: 0.9rem; line-height: 1.85; color: var(--text-mid); }
+    .section-desc + .section-desc { margin-top: 0.9rem; }
+
+    /* PHONE SCREENS */
+    .section-visuals { display: flex; flex-direction: column; align-items: center; }
+    .phone-wrap { width: 100%; max-width: 260px; cursor: zoom-in; transition: transform 0.35s cubic-bezier(0.23,1,0.32,1), box-shadow 0.35s ease; border-radius: 32px; }
+    .phone-wrap:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(74,56,96,0.15); }
+    .phone-wrap img { width: 100%; display: block; border-radius: 32px; }
+    .screen-label { font-size: 0.7rem; color: var(--text-light); letter-spacing: 0.06em; margin-top: 0.55rem; font-style: italic; font-family: var(--serif); text-align: center; }
+
+    /* FULL SECTION */
+    .full-section { margin-bottom: 5rem; }
+    .full-section-header { margin-bottom: 2rem; }
+    .full-section-header .section-number { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.5rem; }
+    .full-section-header .section-name { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 300; color: var(--text-dark); line-height: 1.1; margin-bottom: 0.8rem; }
+    .full-section-header .section-desc { font-size: 0.9rem; line-height: 1.85; color: var(--text-mid); max-width: 680px; }
+    .five-phones { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; max-width: 900px; margin: 0 auto; }
+    .five-phones .phone-wrap { max-width: 100%; border-radius: 24px; }
+    .five-phones .phone-wrap img { border-radius: 24px; }
+
+    /* LIGHTBOX */
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: linear-gradient(160deg, rgba(253,232,192,0.55) 0%, rgba(232,216,240,0.55) 50%, rgba(216,208,240,0.55) 100%); backdrop-filter: blur(30px) saturate(1.2); -webkit-backdrop-filter: blur(30px) saturate(1.2); align-items: center; justify-content: center; flex-direction: column; padding: 2rem; cursor: zoom-out; }
+    .lightbox.open { display: flex; animation: lbIn 0.25s ease; }
+    @keyframes lbIn { from { opacity: 0; } to { opacity: 1; } }
+    .lightbox-img-wrap { max-width: min(88vw, 500px); max-height: 86vh; display: flex; align-items: center; justify-content: center; cursor: default; }
+    .lightbox-img-wrap.wide { max-width: min(92vw, 1100px); }
+    .lightbox img { max-width: 100%; max-height: 84vh; border-radius: 20px; object-fit: contain; box-shadow: 0 8px 48px rgba(74,56,96,0.2); cursor: default; }
+    .lightbox-close { position: absolute; top: 1.4rem; right: 1.6rem; font-size: 1.4rem; color: var(--text-mid); cursor: pointer; background: none; border: none; line-height: 1; transition: color 0.2s; z-index: 1000; }
+    .lightbox-close:hover { color: var(--text-dark); }
+    .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); font-size: 1.4rem; color: var(--text-mid); background: none; border: none; cursor: pointer; padding: 1rem 1.2rem; transition: color 0.2s; z-index: 1000; }
+    .lightbox-nav:hover { color: var(--text-dark); }
+    .lightbox-prev { left: 0.5rem; } .lightbox-next { right: 0.5rem; }
+    .lightbox-counter { position: absolute; top: 1.5rem; left: 50%; transform: translateX(-50%); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); }
+    .lightbox-caption { margin-top: 1rem; text-align: center; }
+    .lightbox-caption p { font-family: var(--serif); font-style: italic; font-size: 1rem; color: var(--text-dark); }
+
+    /* CASE NAV */
+    .case-nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem var(--side) 3rem; max-width: 1400px; margin: 0 auto; }
+    .case-nav a { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; transition: color 0.2s, gap 0.2s; }
+    .case-nav a:hover { color: var(--text-dark); gap: 0.8rem; }
+
+    @media (max-width: 1000px) {
+      .case-section { grid-template-columns: 1fr; }
+      .case-section.reverse .section-meta { order: 1; }
+      .case-section.reverse .section-visuals { order: 2; }
+      .section-meta { position: static; }
+      .five-phones { grid-template-columns: repeat(3, 1fr); max-width: 600px; }
+    }
+    @media (max-width: 700px) {
+      :root { --side: 1.2rem; }
+      nav { padding: 1.1rem var(--side); }
+      .phone-wrap { max-width: 220px; }
+      .five-phones { grid-template-columns: repeat(2, 1fr); max-width: 400px; }
+      .lightbox-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="gradient-bg"></div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightboxDirect()">&times;</button>
+  <span class="lightbox-counter" id="lb-counter"></span>
+  <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation();shiftLightbox(-1)">&#8592;</button>
+  <div class="lightbox-img-wrap" id="lb-wrap" onclick="event.stopPropagation()">
+    <img id="lb-img" src="" alt="">
+  </div>
+  <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation();shiftLightbox(1)">&#8594;</button>
+  <div class="lightbox-caption" onclick="event.stopPropagation()"><p id="lb-title"></p></div>
+</div>
+
+<%- include('include/header-nav') %>
+
+<div class="page-hero">
+  <a href="/portfolio/uiux-design" class="back-link">&#8592; Back to UI/UX</a>
+  <p class="case-eyebrow">Case Study 02 &mdash; UI/UX Design</p>
+  <h1 class="case-title">Smart<br>Scheduler</h1>
+  <p class="case-subtitle">Mobile App Design &middot; Figma</p>
+  <p class="case-intro">An AI-powered productivity app designed to unify fragmented digital tools into a single intelligent hub. I focused on designing an intuitive mobile experience that simplifies scheduling, centralizes tasks, and adapts to user behavior to proactively support daily routines.</p>
+  <div class="page-tags">
+    <span class="tag">Figma</span>
+    <span class="tag">Mobile Design</span>
+    <span class="tag">UX Research</span>
+  </div>
+</div>
+
+<div class="case-body">
+  <div class="gallery-divider"></div>
+
+  <div class="wireframe-hero" onclick="openLightbox(5, true)">
+    <img src="/images/uiux/SS/SmartScheduler.png" alt="Complete Smart Scheduler Wireframe">
+  </div>
+
+  <div class="case-section">
+    <div class="section-meta">
+      <p class="section-number">Full Wireframe</p>
+      <h2 class="section-name">Project Purpose</h2>
+      <p class="section-desc">Smart Scheduler is an AI powered productivity app designed for students and young professionals managing busy, fragmented digital lives. Created as a semester long group project culminating in a 20 minute Shark Tank style pitch, the app consolidates calendars, notifications, and messages from platforms like Apple Calendar, Outlook, Google Calendar, Canvas, iMessage, Slack, and social media into one intelligent hub.</p>
+      <p class="section-desc">Users can choose which platforms to connect, allowing for a personalized experience that brings everything into a single, streamlined interface. By learning user habits, priorities, and routines, Smart Scheduler provides AI driven recommendations to optimize schedules, increase productivity, and reduce missing meetings, appointments, and events while limiting time spent navigating various apps. Although this was a collaborative project, I led the engineering direction and independently designed all wireframes and the full mobile experience.</p>
+    </div>
+  </div>
+
+  <div class="case-section">
+    <div class="section-meta">
+      <p class="section-number">01 &mdash; Home</p>
+      <h2 class="section-name">Home Screen</h2>
+      <p class="section-desc">The home screen provides an immediate snapshot of the user's day, combining key information into a clear and approachable interface. A personalized greeting and task overview set context, while color coded notification cards highlight unread messages, AI generated suggestions, and upcoming responsibilities.</p>
+      <p class="section-desc">A prominent calendar button and an Upcoming Tasks preview organize items by priority, helping ensure nothing slips through the cracks. The layout is designed to reduce cognitive overload, surface the most important information at a glance, and provide intuitive navigation to key features.</p>
+      <p class="section-desc" style="margin-top:0.9rem;">The app's color palette was a deliberate choice to appeal to young adults, using clean neutrals and bright colors to emphasize energy and optimism while managing a busy schedule. Designed to feel engaging rather than clinical.</p>
+    </div>
+    <div class="section-visuals">
+      <div class="phone-wrap" onclick="openLightbox(0)">
+        <img src="/images/uiux/SS/SShome.png" alt="Home Screen">
+      </div>
+      <p class="screen-label">Home Page</p>
+    </div>
+  </div>
+
+  <div class="case-section reverse">
+    <div class="section-meta">
+      <p class="section-number">02 &mdash; Calendar</p>
+      <h2 class="section-name">Calendar View</h2>
+      <p class="section-desc">The calendar view allows users to easily navigate their schedule and interact with daily events in a clear, organized way. Selecting a specific date highlights all associated events and time blocks, giving users a focused view of their day. Tasks shown in blue with a green check mark represent completed items, which can either remain visible or be cleared based on user preferences in settings.</p>
+      <p class="section-desc">Events displayed in white indicate upcoming or incomplete tasks that still require attention. AI generated productivity recommendations appear in pink at the bottom of the schedule, suggesting optimal times for tasks based on the user's habits and availability.</p>
+    </div>
+    <div class="section-visuals">
+      <div class="phone-wrap" onclick="openLightbox(1)">
+        <img src="/images/uiux/SS/SScalender.png" alt="Calendar View">
+      </div>
+      <p class="screen-label">Calendar Page</p>
+    </div>
+  </div>
+
+  <div class="case-section">
+    <div class="section-meta">
+      <p class="section-number">03 &mdash; Tasks</p>
+      <h2 class="section-name">Weekly Tasks</h2>
+      <p class="section-desc">The tasks page provides a detailed overview of the user's weekly workload, organizing tasks from most urgent to least urgent to clearly communicate priorities. Each task includes a priority ranking and scheduled date, helping users understand what needs immediate attention and what can be planned ahead.</p>
+      <p class="section-desc">At the bottom of the page, an AI powered chat feature allows users to give feedback on productivity recommendations. Over time, these interactions help the system learn user habits and preferences, allowing it to generate more accurate and personalized recommendations.</p>
+    </div>
+    <div class="section-visuals">
+      <div class="phone-wrap" onclick="openLightbox(2)">
+        <img src="/images/uiux/SS/SStasks.png" alt="Weekly Tasks">
+      </div>
+      <p class="screen-label">Tasks Page</p>
+    </div>
+  </div>
+
+  <div class="case-section reverse">
+    <div class="section-meta">
+      <p class="section-number">04 &mdash; Messages</p>
+      <h2 class="section-name">Unified Inbox</h2>
+      <p class="section-desc">The messages page consolidates notifications and conversations from all connected platforms into a single, unified inbox. Based on user preferences, Smart Scheduler integrates communication tools such as iMessage, WhatsApp, Discord, GroupMe, Instagram, email, and more.</p>
+      <p class="section-desc">New activity is surfaced at the top through organized categories, including unread messages, urgent responses, and social media notifications. Users can search and navigate contacts to view conversations or send messages directly within the app.</p>
+    </div>
+    <div class="section-visuals">
+      <div class="phone-wrap" onclick="openLightbox(3)">
+        <img src="/images/uiux/SS/SSmessage.png" alt="Messages">
+      </div>
+      <p class="screen-label">Messages Page</p>
+    </div>
+  </div>
+
+  <div class="case-section">
+    <div class="section-meta">
+      <p class="section-number">05 &mdash; User Profile</p>
+      <h2 class="section-name">Profile &amp; Settings</h2>
+      <p class="section-desc">The profile page gives users access to their account details, including registered personal information and current subscription level. A clear call to action at the bottom encourages users to upgrade to a premium subscription, which unlocks enhanced personalization and more advanced AI driven recommendations.</p>
+      <p class="section-desc">The gear icon in the top right leads to additional settings, where users can manage preferences, adjust connected platforms, and update which apps Smart Scheduler can access. It also includes transparency features that provide insight into how user data is used.</p>
+    </div>
+    <div class="section-visuals">
+      <div class="phone-wrap" onclick="openLightbox(4)">
+        <img src="/images/uiux/SS/SSprofile.png" alt="User Profile">
+      </div>
+      <p class="screen-label">Profile Page</p>
+    </div>
+  </div>
+
+  <div class="full-section">
+    <div class="gallery-divider"></div>
+    <div class="full-section-header">
+      <p class="section-number">Complete App</p>
+      <h2 class="section-name">Full Wireframe</h2>
+      <p class="section-desc">All five primary screens side by side, demonstrating the coherent visual language and consistent navigation system across the entire app.</p>
+    </div>
+    <div class="five-phones">
+      <div>
+        <div class="phone-wrap" onclick="openLightbox(0)"><img src="/images/uiux/SS/SShome.png" alt="Home"></div>
+        <p class="screen-label">Home</p>
+      </div>
+      <div>
+        <div class="phone-wrap" onclick="openLightbox(1)"><img src="/images/uiux/SS/SScalender.png" alt="Calendar"></div>
+        <p class="screen-label">Calendar</p>
+      </div>
+      <div>
+        <div class="phone-wrap" onclick="openLightbox(2)"><img src="/images/uiux/SS/SStasks.png" alt="Tasks"></div>
+        <p class="screen-label">Tasks</p>
+      </div>
+      <div>
+        <div class="phone-wrap" onclick="openLightbox(3)"><img src="/images/uiux/SS/SSmessage.png" alt="Messages"></div>
+        <p class="screen-label">Messages</p>
+      </div>
+      <div>
+        <div class="phone-wrap" onclick="openLightbox(4)"><img src="/images/uiux/SS/SSprofile.png" alt="Profile"></div>
+        <p class="screen-label">Profile</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="case-nav">
+  <a href="/portfolio/uiux-design/democracy-viewer">&#8592; Democracy Viewer</a>
+  <a href="/portfolio/uiux-design">All Projects &#8594;</a>
+</div>
+
+<%- include('include/footer') %>
+
+<script>
+  const imgs = [
+    { src:'/images/uiux/SS/SShome.png',        title:'Home Screen',      wide: false },
+    { src:'/images/uiux/SS/SScalender.png',     title:'Calendar View',    wide: false },
+    { src:'/images/uiux/SS/SStasks.png',        title:'Weekly Tasks',     wide: false },
+    { src:'/images/uiux/SS/SSmessage.png',      title:'Messages',         wide: false },
+    { src:'/images/uiux/SS/SSprofile.png',      title:'User Profile',     wide: false },
+    { src:'/images/uiux/SS/SmartScheduler.png', title:'Complete Wireframe &mdash; All Screens', wide: true },
+  ];
+  let cur = 0;
+  function openLightbox(i, wide) { cur=i; updateLB(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow='hidden'; }
+  function updateLB() { const p=imgs[cur]; document.getElementById('lb-img').src=p.src; document.getElementById('lb-title').innerHTML=p.title; document.getElementById('lb-counter').textContent=(cur+1)+' / '+imgs.length; const wrap=document.getElementById('lb-wrap'); wrap.className=p.wide?'lightbox-img-wrap wide':'lightbox-img-wrap'; }
+  function shiftLightbox(d) { cur=(cur+d+imgs.length)%imgs.length; updateLB(); }
+  function closeLightbox(e) { if(e.target===document.getElementById('lightbox')) closeLightboxDirect(); }
+  function closeLightboxDirect() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
+  document.addEventListener('keydown', e => { const lb=document.getElementById('lightbox'); if(!lb.classList.contains('open')) return; if(e.key==='Escape') closeLightboxDirect(); if(e.key==='ArrowRight') shiftLightbox(1); if(e.key==='ArrowLeft') shiftLightbox(-1); });
+</script>
+</body>
+</html>

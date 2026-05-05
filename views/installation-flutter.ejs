@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/head', { title: 'Flutter', extraCSS: ['generative.css'] }) %>
+  <style>
+    nav { background: rgba(216,238,248,0.85); border-bottom: 1px solid rgba(160,200,230,0.2); }
+
+    /* CONTENT SECTIONS */
+    .install-content { max-width: 1400px; margin: 0 auto; padding: 0 var(--side); }
+    .section-label {
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem;
+    }
+    .section-body {
+      font-size: 1rem; color: var(--text-mid); line-height: 1.85;
+      max-width: 680px; margin-bottom: 2rem;
+    }
+
+    /* FULL-WIDTH VIDEO */
+    .video-full { max-width: 1400px; margin: 0 auto; padding: 0 var(--side) 3rem; }
+    .video-full-wrap {
+      width: 100%; border-radius: 16px; overflow: hidden;
+      background: #0e0a1a; aspect-ratio: 16/9;
+    }
+    .video-full-wrap video {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; border-radius: 16px;
+    }
+    .video-full-caption {
+      margin-top: 0.7rem; font-family: var(--serif);
+      font-size: 0.9rem; font-style: italic; color: var(--text-light);
+    }
+
+    /* BACK NAV */
+    .back-nav {
+      max-width: 1400px; margin: 2rem auto 0;
+      padding: 2rem var(--side) 5rem;
+      border-top: 1px solid rgba(200,170,100,0.2);
+    }
+    .back-nav a {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-mid);
+      text-decoration: none; transition: color 0.2s, gap 0.2s;
+    }
+    .back-nav a:hover { color: var(--text-dark); gap: 0.9rem; }
+
+    @media (max-width: 600px) { :root { --side: 1.2rem; } }
+  </style>
+</head>
+<body>
+<div class="gradient-bg gradient-gen"></div>
+
+<%- include('include/header-nav') %>
+
+<div class="page-hero">
+  <a href="/portfolio/generative-art" class="back-link">&#8592; Back to Generative Art</a>
+  <p class="page-eyebrow">Installation &mdash; 2026</p>
+  <h1 class="page-title">Flutter</h1>
+  <p class="page-desc">A large-scale projected installation built around the emergent behavior of particle systems — thousands of individual agents following simple rules that together produce something that looks alive.</p>
+  <div class="page-tags">
+    <span class="tag">TouchDesigner</span>
+    <span class="tag">3D Printed Models</span>
+    <span class="tag">Projection Mapping</span>
+  </div>
+</div>
+
+<!-- Main generative video -->
+<div class="video-full">
+  <div class="gallery-divider"></div>
+  <div class="video-full-wrap">
+    <video controls preload="none" poster="/images/generative/flutterSS.png">
+      <source src="/images/generative/Flutter.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="video-full-caption">Generative system preview</p>
+</div>
+
+<!-- About the Work -->
+<div class="install-content">
+  <div class="section-divider"></div>
+  <p class="section-label">About the Work</p>
+  <p class="section-body">
+    Flutter is a large scale projection mapped installation that turns a particle system into an interactive visual experience. Inspired by the butterfly effect, the piece explores how small actions can create larger impact over time.
+  </p>
+  <p class="section-body">
+    As users move the computer cursor, thousands of particles respond by forming a colorful spiral that follows their path. I thought of each particle as both a decision and an individual. While each particle moves on its own, it is still connected to the larger system around it. The bright colors created by the user's movement represent positive actions, showing how one path can influence everything nearby.
+  </p>
+</div>
+
+<!-- Installation view 1 -->
+<div class="video-full">
+  <div class="video-full-wrap">
+    <video controls preload="none" poster="/images/generative/flutter_install1_SS.png">
+      <source src="/images/generative/flutter_install1.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="video-full-caption">Installation view 1</p>
+</div>
+
+<!-- The Process -->
+<div class="install-content">
+  <div class="section-divider"></div>
+  <p class="section-label">The Process</p>
+  <p class="section-body">
+    This project began as an assignment to create a tool, either by inventing something new or expanding an existing technology into something personal. I chose to build from a particle system in TouchDesigner and YouTube tutorials and turn it into a creative tool for visual play and reflection.
+  </p>
+  <p class="section-body">
+    I programmed and customized the patch by adjusting the user movement, interaction radius, and color palette so the visuals felt more expressive and responsive. As the project developed, it became less about the tool itself and more about the meaning behind the interaction. The user's movement became a way to shape the artwork, while the surrounding particles showed how small choices can spread outward.
+  </p>
+  <p class="section-body">
+    To bring the piece into physical space, I also created two small 3D printed butterflies. I tested different sizes, colors, weights, and print styles before choosing the final forms. I then sewed the butterflies onto an iridescent sheet, which added a subtle shimmer when the projection hit the surface.
+  </p>
+</div>
+
+<!-- Installation view 2 -->
+<div class="video-full">
+  <div class="video-full-wrap">
+    <video controls preload="none" poster="/images/generative/flutter_install2_SS.png">
+      <source src="/images/generative/flutter_install2.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="video-full-caption">Installation view 2</p>
+</div>
+
+<!-- Installation view 3 -->
+<div class="video-full">
+  <div class="video-full-wrap">
+    <video controls preload="none" poster="/images/generative/flutter_install3_SS.png">
+      <source src="/images/generative/flutter_install3.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="video-full-caption">Installation view 3</p>
+</div>
+
+<!-- Audience Interaction -->
+<div class="install-content">
+  <div class="section-divider"></div>
+  <p class="section-label">Audience Interaction</p>
+  <p class="section-body">
+    I designed Flutter as a full wall installation so viewers could experience the particle system at a larger scale. The iridescent sheet was measured to align with the TouchDesigner projection, and I projection mapped a soft white glow onto the 3D printed butterflies so they would stand out within the sea of particles.
+  </p>
+  <p class="section-body">
+    The piece was first presented as a live interactive demo, where user movement shaped the visuals in real time. Since the work was also displayed in the gallery for two weeks, I recorded an interaction with the patch and projected it as a loop. This allowed the installation to keep its sense of movement, color, and life throughout the exhibition.
+  </p>
+</div>
+
+<div class="back-nav">
+  <a href="/portfolio/generative-art">&#8592; Back to Generative Art</a>
+</div>
+
+<%- include('include/footer') %>
+</body>
+</html>

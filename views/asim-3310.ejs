@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/head', { title: 'ASIM 3310', extraCSS: ['generative.css'] }) %>
+  <style>
+    .gradient-asim { background: linear-gradient(160deg, #d0ecd8 0%, #e8f0d0 50%, #f8f0c8 100%) !important; }
+    nav { --nav-bg: rgba(208,236,216,0.95); background: rgba(208,236,216,0.85); border-bottom: 1px solid rgba(120,180,130,0.2); }
+  </style>
+</head>
+<body>
+<div class="gradient-bg gradient-asim"></div>
+
+<%- include('include/header-nav') %>
+
+<div class="page-hero">
+  <!-- <a href="/" class="back-link">&#8592; Back to Home</a> -->
+  <p class="page-eyebrow">Course Work &mdash; Spring 2026</p>
+  <h1 class="page-title">ASIM 3310</h1>
+  <p class="page-desc">A collection of creative projects built in ASIM 3310 — exploring interactive media, generative systems, and projection-based installation.</p>
+  <div class="page-tags">
+    <span class="tag">TouchDesigner</span>
+    <span class="tag">Projection Mapping</span>
+    <span class="tag">Interactive Media</span>
+    <span class="tag">Generative Art</span>
+  </div>
+</div>
+
+<div class="gallery-section">
+  <div class="gallery-divider"></div>
+  <div class="installations-grid">
+
+    <!-- Card 1: Flutter -->
+    <div class="install-card">
+      <div class="install-video-wrap">
+        <video autoplay muted loop playsinline preload="auto" poster="/images/generative/flutterSS.png">
+          <source src="/images/generative/Flutter.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="install-info">
+        <p class="install-eyebrow">Installation &mdash; 2026</p>
+        <h2 class="install-title">Flutter</h2>
+        <p class="install-meta">TouchDesigner &middot; 3D Printed Models &middot; Projection Mapping<br>SMU Meadows School of the Arts</p>
+        <p class="install-desc">A large-scale projected installation built around the emergent behavior of particle systems — thousands of individual agents following simple rules that together produce something that looks alive.</p>
+        <a href="/portfolio/asim-3310/flutter" class="install-btn">View Installation <span class="install-btn-arrow">&#8599;</span></a>
+      </div>
+    </div>
+
+    <!-- Card 2: Coloring -->
+    <div class="install-card">
+      <div class="install-video-wrap">
+        <video autoplay muted loop playsinline preload="auto" poster="/images/asim/coloringSS.png">
+          <source src="/images/asim/coloring.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="install-info">
+        <p class="install-eyebrow">Project &mdash; 2026</p>
+        <h2 class="install-title">Coloring</h2>
+        <p class="install-meta">TouchDesigner<br>SMU Meadows School of the Arts</p>
+        <p class="install-desc">An interactive generative piece exploring color, form, and user-driven visual composition.</p>
+        <a href="/portfolio/asim-3310/coloring" class="install-btn">View Project <span class="install-btn-arrow">&#8599;</span></a>
+      </div>
+    </div>
+
+    <!-- Card 3: More Work -->
+    <div class="install-card">
+      <div class="install-video-wrap">
+        <video autoplay muted loop playsinline preload="auto" poster="/images/asim/sunglowSS.png">
+          <source src="/images/asim/sunglow.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="install-info">
+        <p class="install-eyebrow">Collection &mdash; 2026</p>
+        <h2 class="install-title">More Work</h2>
+        <p class="install-meta">TouchDesigner &middot; Various Tools<br>SMU Meadows School of the Arts</p>
+        <p class="install-desc">A collection of smaller projects, experiments, and explorations from throughout the course.</p>
+        <a href="/portfolio/asim-3310/more-work" class="install-btn">View Collection <span class="install-btn-arrow">&#8599;</span></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="page-nav">
+  <span></span>
+  <a href="/portfolio/uiux-design" class="page-nav-link next">
+    <span class="nav-arrow">→</span>
+    <span class="nav-text">
+      <span class="nav-label">Next</span>
+      <span class="nav-name">UI/UX Design</span>
+    </span>
+  </a>
+</div>
+
+<%- include('include/footer') %>
+</body>
+</html>

@@ -24,6 +24,12 @@ app.get('/portfolio/traditional-art', (req, res) => res.render('traditional-art'
 app.get('/portfolio/digital-art',     (req, res) => res.render('digital-art',     { homeNav: false }));
 app.get('/portfolio/generative-art',  (req, res) => res.render('generative-art',  { homeNav: false }));
 
+// ASIM pages 
+app.get('/portfolio/asim-3310',                (req, res) => res.render('asim-3310',                    { homeNav: false }));
+app.get('/portfolio/asim-3310/flutter',         (req, res) => res.render('installation-flutter-asim',    { homeNav: false }));
+app.get('/portfolio/asim-3310/coloring',        (req, res) => res.render('asim-coloring',                { homeNav: false }));
+app.get('/portfolio/asim-3310/more-work',       (req, res) => res.render('asim-more-work',               { homeNav: false }));
+
 // UI/UX hub + case studies
 app.get('/portfolio/uiux-design',                  (req, res) => res.render('uiux-design',       { homeNav: false }));
 app.get('/portfolio/uiux-design/democracy-viewer', (req, res) => res.render('democracy-viewer',  { homeNav: false }));

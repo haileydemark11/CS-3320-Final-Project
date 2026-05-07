@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/head', { title: 'Coloring — ASIM 3310', extraCSS: ['generative.css'] }) %>
+  <style>
+    .gradient-asim { background: linear-gradient(160deg, #d0ecd8 0%, #e8f0d0 50%, #f8f0c8 100%) !important; }
+    nav { --nav-bg: rgba(208,236,216,0.95); background: rgba(208,236,216,0.85); border-bottom: 1px solid rgba(120,180,130,0.2); }
+
+    .work-content { max-width: 1400px; margin: 0 auto; padding: 0 var(--side); }
+
+    .video-full { max-width: 1400px; margin: 0 auto; padding: 0 var(--side) 1rem; }
+    .video-full-wrap {
+      width: 100%; border-radius: 16px; overflow: hidden;
+      background: #0e0a1a; aspect-ratio: 16/9;
+    }
+    .video-full-wrap video {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; border-radius: 16px;
+    }
+    .video-caption {
+      margin-top: 0.6rem; margin-bottom: 2rem;
+      font-family: var(--serif); font-size: 1.15rem;
+      font-style: italic; color: var(--text-light);
+    }
+
+    /* Full width image */
+    .img-full { max-width: 1400px; margin: 0 auto; padding: 0 var(--side) 2rem; }
+    .img-full img {
+      width: 100%; border-radius: 16px;
+      display: block; object-fit: cover;
+    }
+
+    .project-body {
+      font-size: 1rem; color: var(--text-mid); line-height: 1.85;
+      max-width: 680px; margin-bottom: 2.5rem;
+    }
+
+    .back-nav {
+      max-width: 1400px; margin: 2rem auto 0;
+      padding: 2rem var(--side) 5rem;
+      border-top: 1px solid rgba(200,170,100,0.2);
+    }
+    .back-nav a {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-mid);
+      text-decoration: none; transition: color 0.2s, gap 0.2s;
+    }
+    .back-nav a:hover { color: var(--text-dark); gap: 0.9rem; }
+
+    @media (max-width: 600px) { :root { --side: 1.2rem; } }
+  </style>
+</head>
+<body>
+<div class="gradient-bg gradient-asim"></div>
+
+<%- include('include/header-nav') %>
+
+<div class="page-hero">
+  <a href="/portfolio/asim-3310" class="back-link">&#8592; Back to ASIM 3310</a>
+  <p class="page-eyebrow">Project &mdash; Spring 2026</p>
+  <h1 class="page-title">Coloring</h1>
+  <p class="page-desc">An interactive generative piece exploring color, form, and user-driven visual composition through TouchDesigner.</p>
+  <div class="page-tags">
+    <span class="tag">TouchDesigner</span>
+    <span class="tag">Generative Art</span>
+    <span class="tag">Interactive Media</span>
+  </div>
+</div>
+
+<!-- Main video -->
+<div class="video-full">
+  <div class="gallery-divider"></div>
+  <div class="video-full-wrap">
+    <video controls preload="none" poster="/images/asim/coloringSS.png">
+      <source src="/images/asim/coloring.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="video-caption">Coloring, 2026</p>
+</div>
+
+<!-- First paragraph block -->
+<div class="work-content">
+  <p class="project-body">
+    Coloring began as an investigation into how digital systems can replicate the intuitive, tactile quality of mark-making. Working in TouchDesigner, I explored how color — its hue, saturation, and movement — could be treated not as a property of form but as a form in itself. The result is a system that feels less like a program and more like a medium, something you move through rather than simply observe.
+  </p>
+  <p class="project-body">
+    The piece draws on the visual language of traditional coloring — the layering of pigment, the rhythm of a hand moving across a surface — and translates it into a generative context. Each pass through the system produces something slightly different, shaped by timing, input, and the inherent unpredictability of the patch itself.
+  </p>
+
+  <div class="section-divider"></div>
+</div>
+
+<!-- TouchDesigner patch image -->
+<div class="img-full">
+  <img src="/images/asim/coloringTDpatch.png" alt="TouchDesigner patch for Coloring" loading="lazy">
+</div>
+
+<!-- Second paragraph block -->
+<div class="work-content">
+  <p class="project-body">
+    Building the patch for Coloring required thinking carefully about the flow of data — how a signal moves through a network of operators and transforms at each stage into something new. The TouchDesigner patch became its own kind of drawing, a diagram of decisions made in real time, each node a choice about what to keep, what to discard, and what to amplify.
+  </p>
+  <p class="project-body">
+    This process deepened my understanding of TouchDesigner as a compositional tool rather than simply a rendering engine. The patch is not just infrastructure; it is part of the work itself — a record of process made visible.
+  </p>
+
+  <div class="section-divider"></div>
+</div>
+
+<!-- Code video, no caption -->
+<div class="video-full">
+  <div class="video-full-wrap">
+    <video controls preload="none" poster="/images/asim/coloringcodeSS.png">
+      <source src="/images/asim/coloringcode.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<!-- Final paragraph block -->
+<div class="work-content">
+  <p class="project-body">
+    The code behind Coloring reflects the iterative nature of the entire project. Rather than writing toward a fixed outcome, I wrote toward a feeling — adjusting parameters, testing variations, and letting the system surprise me. This approach to coding, more exploratory than prescriptive, felt closer to sketching than engineering, and produced results I could not have planned in advance.
+  </p>
+  <p class="project-body">
+    Looking back, Coloring stands as one of the most process-driven pieces I made in the course. It is less about what you see and more about how it came to be — a record of curiosity, iteration, and the particular pleasure of not quite knowing where something is going until it arrives.
+  </p>
+</div>
+
+<div class="back-nav">
+  <a href="/portfolio/asim-3310">&#8592; Back to ASIM 3310</a>
+</div>
+
+<%- include('include/footer') %>
+</body>
+</html>

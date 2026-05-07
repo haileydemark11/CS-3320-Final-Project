@@ -3,9 +3,9 @@
 <head>
   <%- include('include/head', { title: 'Flutter', extraCSS: ['generative.css'] }) %>
   <style>
-    nav { --nav-bg: rgba(216,238,248,0.85); background: rgba(216,238,248,0.85); border-bottom: 1px solid rgba(160,200,230,0.2); }
+    .gradient-asim { background: linear-gradient(160deg, #d0ecd8 0%, #e8f0d0 50%, #f8f0c8 100%) !important; }
+    nav { --nav-bg: rgba(208,236,216,0.95); background: rgba(208,236,216,0.85); border-bottom: 1px solid rgba(120,180,130,0.2); }
 
-    /* CONTENT SECTIONS */
     .install-content { max-width: 1400px; margin: 0 auto; padding: 0 var(--side); }
     .section-label {
       font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em;
@@ -16,7 +16,6 @@
       max-width: 680px; margin-bottom: 2rem;
     }
 
-    /* FULL-WIDTH VIDEO */
     .video-full { max-width: 1400px; margin: 0 auto; padding: 0 var(--side) 3rem; }
     .video-full-wrap {
       width: 100%; border-radius: 16px; overflow: hidden;
@@ -31,7 +30,6 @@
       font-size: 0.9rem; font-style: italic; color: var(--text-light);
     }
 
-    /* BACK NAV */
     .back-nav {
       max-width: 1400px; margin: 2rem auto 0;
       padding: 2rem var(--side) 5rem;
@@ -49,12 +47,12 @@
   </style>
 </head>
 <body>
-<div class="gradient-bg gradient-gen"></div>
+<div class="gradient-bg gradient-asim"></div>
 
 <%- include('include/header-nav') %>
 
 <div class="page-hero">
-  <a href="/portfolio/generative-art" class="back-link">&#8592; Back to Generative Art</a>
+  <a href="/portfolio/asim-3310" class="back-link">&#8592; Back to ASIM 3310</a>
   <p class="page-eyebrow">Installation &mdash; 2026</p>
   <h1 class="page-title">Flutter</h1>
   <p class="page-desc">A large-scale projected installation built around the emergent behavior of particle systems — thousands of individual agents following simple rules that together produce something that looks alive.</p>
@@ -146,7 +144,7 @@
 </div>
 
 <div class="back-nav">
-  <a href="/portfolio/generative-art">&#8592; Back to Generative Art</a>
+  <a href="/portfolio/asim-3310">&#8592; Back to ASIM 3310</a>
 </div>
 
 <%- include('include/footer') %>

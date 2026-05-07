@@ -55,7 +55,7 @@ section { padding: 7rem 3rem; max-width: 1280px; margin: 0 auto; }
 /* card backgrounds  */
 .card-trad .card-bg   { background-image: url('../images/traditional/selfportrait.jpg'); background-position: center 15%; }
 .card-digital .card-bg { background-image: url('../images/digital/WildChild.png'); background-position: center top; }
-.card-uiux .card-bg   { background-image: url('../images/uiux/SmartScheduler/SmartScheduler.png'); background-position: 1% 10%; background-size: 290%; background-repeat: no-repeat; background-color: #f0eef8; }
+.card-uiux .card-bg   { background-image: url('../images/uiux/SS/SmartScheduler.png'); background-position: 1% 10%; background-size: 290%; background-repeat: no-repeat; background-color: #f0eef8; }
 .card-gen .card-bg    { background-image: url('../images/generative/TreeofLifeSS.png'); background-position: center; background-size: 134%; background-repeat: no-repeat; background-color: #1a1a2e; }
 
 .card-overlay {

@@ -99,7 +99,7 @@ nav {
   top: 100%; left: 0; right: auto;
   margin-top: 0.6rem;
   min-width: 200px;
-  background: rgba(253,244,200,0.95);
+  background: var(--nav-bg, rgba(253,244,200,0.95));
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(200,170,100,0.2);
   border-radius: 12px; padding: 0.6rem 0;
@@ -107,6 +107,7 @@ nav {
   box-shadow: 0 12px 32px rgba(34,24,48,0.1);
   z-index: 200;
 }
+
 .nav-dropdown:hover .dropdown-menu {
   display: block; animation: dropIn 0.2s ease;
 }

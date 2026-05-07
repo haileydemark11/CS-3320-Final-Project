@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/head', { title: 'More Work — ASIM 3310', extraCSS: ['generative.css'] }) %>
+  <style>
+    .gradient-asim { background: linear-gradient(160deg, #d0ecd8 0%, #e8f0d0 50%, #f8f0c8 100%) !important; }
+    nav { --nav-bg: rgba(208,236,216,0.95); background: rgba(208,236,216,0.85); border-bottom: 1px solid rgba(120,180,130,0.2); }
+
+    .work-content { max-width: 1400px; margin: 0 auto; padding: 0 var(--side); }
+
+    .video-full { max-width: 1400px; margin: 0 auto; padding: 0 var(--side) 1rem; }
+    .video-full-wrap {
+      width: 100%; border-radius: 16px; overflow: hidden;
+      background: #0e0a1a; aspect-ratio: 16/9;
+    }
+    .video-full-wrap.square { aspect-ratio: 1/1; max-width: 720px; }
+    .video-full-wrap video {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; border-radius: 16px;
+    }
+    
+    .video-caption {
+      margin-top: 0.6rem; margin-bottom: 2rem;
+      font-family: var(--serif); font-size: 1.15rem;
+      font-style: italic; color: var(--text-light);
+    }
+
+    .project-block { margin-bottom: 1rem; }
+    .project-label {
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem;
+    }
+    .project-body {
+      font-size: 1rem; color: var(--text-mid); line-height: 1.85;
+      max-width: 680px; margin-bottom: 2.5rem;
+    }
+
+    .back-nav {
+      max-width: 1400px; margin: 2rem auto 0;
+      padding: 2rem var(--side) 5rem;
+      border-top: 1px solid rgba(200,170,100,0.2);
+    }
+    .back-nav a {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-mid);
+      text-decoration: none; transition: color 0.2s, gap 0.2s;
+    }
+    .back-nav a:hover { color: var(--text-dark); gap: 0.9rem; }
+
+    @media (max-width: 600px) { :root { --side: 1.2rem; } }
+  </style>
+</head>
+<body>
+<div class="gradient-bg gradient-asim"></div>
+
+<%- include('include/header-nav') %>
+
+<div class="page-hero">
+  <a href="/portfolio/asim-3310" class="back-link">&#8592; Back to ASIM 3310</a>
+  <p class="page-eyebrow">Collection &mdash; Spring 2026</p>
+  <h1 class="page-title">More Work</h1>
+  <p class="page-desc">A collection of smaller projects, experiments, and explorations from throughout the course — each one a stepping stone in learning to think with code and image together.</p>
+  <div class="page-tags">
+    <span class="tag">TouchDesigner</span>
+    <span class="tag">Generative Systems</span>
+    <span class="tag">Visual Experiments</span>
+  </div>
+</div>
+
+<div class="work-content">
+  <div class="gallery-divider"></div>
+  <div class="project-block">
+    <p class="project-label">Project 01</p>
+  </div>
+</div>
+
+<!-- 1. Sun Glow -->
+<div class="video-full">
+  <div class="video-full-wrap">
+    <video controls preload="none" poster="/images/asim/sunglowSS.png">
+      <source src="/images/asim/sunglow.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="video-caption">Sun Glow, 2026, 1280px &times; 720px</p>
+</div>
+
+<div class="work-content">
+  <p class="project-body">Sun Glow was an early experiment in working with light and color as primary materials. Using TouchDesigner, I explored how warm tonal ranges — golds, ambers, and soft whites — could be animated to feel organic and radiant rather than digital. The piece plays with the idea of light as something alive, something that breathes and shifts rather than simply illuminates.</p>
+  <p class="project-body">This project pushed me to think more carefully about timing and easing in generative systems — how the speed of a transition can completely change the emotional register of an image. A fast flicker reads as electric and anxious; a slow bloom reads as peaceful and warm. Sun Glow leans fully into the latter.</p>
+
+  <div class="section-divider"></div>
+  <div class="project-block">
+    <p class="project-label">Project 02</p>
+  </div>
+</div>
+
+<!-- 2. Seaweed -->
+<div class="video-full">
+  <div class="video-full-wrap square">
+    <video controls preload="none" poster="/images/asim/seaweedSS.png">
+      <source src="/images/asim/seaweed.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="video-caption">Seaweed, 2026, 720px &times; 720px</p>
+</div>
+
+<div class="work-content">
+  <p class="project-body">Seaweed grew out of an interest in fluid simulation and natural movement. I wanted to capture the way underwater plants move — never still, never erratic, always following the invisible logic of current and gravity. The square format was a deliberate choice, creating a contained world that feels more like a window than a screen.</p>
+  <p class="project-body">Technically, this piece involved experimenting with particle systems constrained to behave like strands rather than individual agents. The challenge was making each element feel connected to the whole — rooted at the base, free at the tips — which required a lot of iteration around anchor points and force fields within the patch.</p>
+
+  <div class="section-divider"></div>
+  <div class="project-block">
+    <p class="project-label">Project 03</p>
+  </div>
+</div>
+
+<!-- 3. Warped -->
+<div class="video-full">
+  <div class="video-full-wrap square">
+    <video controls preload="none" poster="/images/asim/circleSS.png">
+      <source src="/images/asim/circle.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="video-caption">Warped, 2026, 720px &times; 720px</p>
+</div>
+
+<div class="work-content">
+  <p class="project-body">Warped began as a simple geometric study — what happens when you apply distortion to a circle? The answer, it turns out, is everything. Small changes in displacement, feedback, and timing produced wildly different results, from gentle pulsing forms to aggressive, almost violent distortions. The final version sits somewhere in between: familiar enough to read as circular, strange enough to feel alive.</p>
+  <p class="project-body">This experiment taught me a great deal about feedback loops in TouchDesigner — how feeding the output of a process back into its own input creates behavior that compounds and evolves in ways that are difficult to predict or fully control. That loss of control, within structure, became something I actively sought rather than avoided.</p>
+
+  <div class="section-divider"></div>
+  <div class="project-block">
+    <p class="project-label">Project 04</p>
+  </div>
+</div>
+
+<!-- 4. Woah...Waves! -->
+<div class="video-full">
+  <div class="video-full-wrap">
+    <video controls preload="none" poster="/images/asim/wavesSS.png">
+      <source src="/images/asim/waves.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="video-caption">Woah...Waves!, 2026, 1280px &times; 720px</p>
+</div>
+
+<div class="work-content">
+  <p class="project-body">Woah...Waves! started as an exploration of rhythm and repetition — how a single waveform, when layered and offset, can produce something that feels vast and oceanic. The piece leans into the hypnotic quality of wave motion, using gentle interference patterns to create a sense of depth and movement that pulls the eye across the frame.</p>
+  <p class="project-body">Working with wave-based systems in TouchDesigner revealed how much of visual interest lives in the relationships between elements rather than the elements themselves. The individual waves are simple; it is their interaction — the way they reinforce or cancel each other — that gives the piece its character.</p>
+
+  <div class="section-divider"></div>
+  <div class="project-block">
+    <p class="project-label">Project 05</p>
+  </div>
+</div>
+
+<!-- 5. Bricks -->
+<div class="video-full">
+  <div class="video-full-wrap">
+    <video controls preload="none" poster="/images/asim/bricksSS.png">
+      <source src="/images/asim/bricks.mp4" type="video/mp4">
+    </video>
+  </div>
+  <p class="video-caption">Bricks, 2026, 1280px &times; 720px</p>
+</div>
+
+<div class="work-content">
+  <p class="project-body">Bricks was a study in texture, structure, and the unexpected life that can emerge from rigid geometric systems. Starting from a simple grid of rectangular forms, I introduced displacement, color variation, and subtle animation to transform what could have been a static pattern into something that breathes and shifts over time.</p>
+  <p class="project-body">The piece asks a quiet question: at what point does a pattern become something more? Bricks sits at that threshold — orderly enough to read as architectural, animated enough to feel organic. It was a reminder that constraint and structure are not the enemies of expression; often, they are the conditions that make expression possible.</p>
+</div>
+
+<div class="back-nav">
+  <a href="/portfolio/asim-3310">&#8592; Back to ASIM 3310</a>
+</div>
+
+<%- include('include/footer') %>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <%- include('include/head', { title: 'UI/UX Design', extraCSS: ['uiux.css'] }) %>
   <style>
     .gradient-bg { background: linear-gradient(160deg, #fde8c0 0%, #e8d8f0 50%, #d8d0f0 100%); }
-    nav { background: rgba(253,232,192,0.85); border-bottom: 1px solid rgba(200,170,100,0.15); }
+    nav { --nav-bg: rgba(253,232,192,0.85); background: rgba(253,232,192,0.85); border-bottom: 1px solid rgba(200,170,100,0.15); }
   </style>
 </head>
 <body>
@@ -13,7 +13,7 @@
 <%- include('include/header-nav') %>
 
 <div class="page-hero">
-  <a href="/" class="back-link">&#8592; Back to Work</a>
+  <!-- <a href="/" class="back-link">&#8592; Back to Work</a> -->
   <p class="page-eyebrow">03 &mdash; UI/UX Design</p>
   <h1 class="page-title">UI/UX<br>Design</h1>
   <p class="page-desc">Designed in Figma, from complex data platforms to AI-powered productivity apps. I focus on creating intuitive, user-centered experiences that solve real problems.</p>
@@ -58,19 +58,19 @@
 </div>
 
 <div class="page-nav">
-  <a href="/portfolio/digital-art" class="page-nav-link prev">
-    <span class="nav-arrow">&#8592;</span>
-    <div class="nav-text">
+  <a href="/portfolio/asim-3310" class="page-nav-link prev">
+    <span class="nav-arrow">←</span>
+    <span class="nav-text">
       <span class="nav-label">Previous</span>
-      <span class="nav-name">Digital Art</span>
-    </div>
+      <span class="nav-name">ASIM 3310</span>
+    </span>
   </a>
   <a href="/portfolio/generative-art" class="page-nav-link next">
-    <div class="nav-text">
+    <span class="nav-arrow">→</span>
+    <span class="nav-text">
       <span class="nav-label">Next</span>
       <span class="nav-name">Generative Art</span>
-    </div>
-    <span class="nav-arrow">&#8594;</span>
+    </span>
   </a>
 </div>
 

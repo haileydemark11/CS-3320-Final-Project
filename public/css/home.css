@@ -36,7 +36,7 @@ section { padding: 7rem 3rem; max-width: 1280px; margin: 0 auto; }
 
 /* filmstrip */
 .project-categories {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem;
 }
 .project-card {
   position: relative; border-radius: 18px; overflow: hidden;
@@ -57,6 +57,16 @@ section { padding: 7rem 3rem; max-width: 1280px; margin: 0 auto; }
 .card-digital .card-bg { background-image: url('../images/digital/WildChild.png'); background-position: center top; }
 .card-uiux .card-bg   { background-image: url('../images/uiux/SS/SmartScheduler.png'); background-position: 1% 10%; background-size: 290%; background-repeat: no-repeat; background-color: #f0eef8; }
 .card-gen .card-bg    { background-image: url('../images/generative/TreeofLifeSS.png'); background-position: center; background-size: 134%; background-repeat: no-repeat; background-color: #1a1a2e; }
+
+.card-asim .card-bg { 
+  background-image: url('../images/generative/flutterSS.png'); 
+  background-position: 85% center;
+  background-size: cover; 
+  background-repeat: no-repeat; 
+}
+.card-asim .card-overlay { 
+  background: linear-gradient(to top, rgba(14,8,28,0.82) 0%, rgba(14,8,28,0.2) 45%, transparent 75%); 
+}
 
 .card-overlay {
   position: absolute; inset: 0;

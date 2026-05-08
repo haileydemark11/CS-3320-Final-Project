@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('include/head', { title: 'Contact', extraCSS: ['home.css'] }) %>
+</head>
+<body>
+<div class="gradient-bg"></div>
+
+<%- include('include/header-nav') %>
+
+<div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 4rem var(--side) 4rem; margin-top: -4rem;">
+  <div style="width: 100%; max-width: 640px; text-align: center;">
+    <h1 class="page-title" style="font-size: clamp(3rem, 7vw, 6rem); margin-bottom: 1rem;">Let's Conntect</h1>
+    <p class="page-desc" style="margin: 0 auto 3rem; text-align: center;">Fill out the form below and I'll get back to you soon.</p>
+
+    <form id="contact-form" class="contact-form" style="text-align: left;">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name <span class="required">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="topic">Topic <span class="required">*</span></label>
+        <input type="text" id="topic" name="topic" placeholder="e.g. commission, introduction, opportunity" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message <span class="required">*</span></label>
+        <textarea id="message" name="message" rows="6" placeholder="" required></textarea>
+      </div>
+      <div class="form-footer" style="justify-content: center;">
+        <button type="submit" class="btn btn-primary" id="submit-btn">Send Message</button>
+        <p id="form-status" class="form-status"></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('include/footer') %>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    const status = document.getElementById('form-status');
+    const form = document.getElementById('contact-form');
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    status.textContent = '';
+    status.className = 'form-status';
+
+    try {
+      const res = await fetch('/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          topic: document.getElementById('topic').value,
+          message: document.getElementById('message').value
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        status.textContent = data.message;
+        status.classList.add('success');
+        form.reset();
+      } else {
+        status.textContent = data.message;
+        status.classList.add('error');
+      }
+    } catch {
+      status.textContent = 'Something went wrong. Please try again.';
+      status.classList.add('error');
+    } finally {
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

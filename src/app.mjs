@@ -84,7 +84,7 @@ app.post('/contact', contactLimiter, async (req, res) => {
   const topic = sanitizeHtml(req.body.topic || '', { allowedTags: [] });
   const message = sanitizeHtml(req.body.message || '', { allowedTags: [] });
 
-  if (!name || !email || !message) {
+  if (!name || !email || !topic || !message) {
     return res.status(400).json({ success: false, message: 'Please fill out all required fields.' });
   }
 

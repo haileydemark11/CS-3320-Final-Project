@@ -1,6 +1,6 @@
 <nav>
   <a href="/" class="nav-logo">Hailey DeMark</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li class="nav-dropdown">
       <span class="nav-dropdown-toggle">Work</span>
       <ul class="dropdown-menu">
@@ -12,6 +12,63 @@
       </ul>
     </li>
     <li><a href="/#about">About</a></li>
-    <li><a href="/#contact">Contact</a></li>
+    <li><a href="/contact">Contact</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile full-page overlay -->
+<div class="mobile-nav-overlay" id="mobile-nav-overlay">
+  <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">&times;</button>
+  <ul class="mobile-nav-links">
+    <li><a href="/portfolio/asim-3310">ASIM 3310</a></li>
+    <li><a href="/portfolio/uiux-design">UI/UX Design</a></li>
+    <li><a href="/portfolio/generative-art">Generative Art</a></li>
+    <li><a href="/portfolio/digital-art">Digital Art</a></li>
+    <li><a href="/portfolio/traditional-art">Traditional Art</a></li>
+    <li class="mobile-divider"></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</div>
+
+<script>
+  const hamburger = document.getElementById('nav-hamburger');
+  const overlay = document.getElementById('mobile-nav-overlay');
+  const closeBtn = document.getElementById('mobile-nav-close');
+
+  // Match overlay color to page gradient
+  const path = window.location.pathname;
+  let overlayColor = 'rgb(253, 248, 220)'; // default home/warm yellow
+  if (path.includes('generative') || path.includes('installation-tree') || path.includes('installation-flutter') && !path.includes('asim')) {
+    overlayColor = 'rgb(216, 238, 248)'; // generative: light blue
+  } else if (path.includes('asim')) {
+    overlayColor = 'rgb(208, 236, 216)'; // asim: light green
+  } else if (path.includes('uiux') || path.includes('democracy') || path.includes('smart-scheduler')) {
+    overlayColor = 'rgb(253, 232, 192)'; // uiux: warm peach
+  } else if (path.includes('digital')) {
+    overlayColor = 'rgb(240, 232, 248)'; // digital: soft purple
+  } else if (path.includes('traditional')) {
+    overlayColor = 'rgb(253, 240, 192)'; // traditional: warm gold
+  }
+  overlay.style.background = overlayColor;
+
+  function openMenu() {
+    overlay.classList.add('nav-open');
+    hamburger.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    overlay.classList.remove('nav-open');
+    hamburger.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>

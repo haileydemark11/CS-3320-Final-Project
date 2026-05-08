@@ -18,7 +18,7 @@
   <p class="hero-roles">Artist <span>&middot;</span> Designer <span>&middot;</span> Developer</p>
   <div class="hero-cta">
     <a href="#work" class="btn btn-primary">View My Work</a>
-    <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    <a href="/contact" class="btn btn-outline">Get in Touch</a>
   </div>
   <div class="hero-scroll">
     <div class="scroll-line"></div>
@@ -96,7 +96,7 @@
 
 <section id="about">
   <div class="about-visual reveal">
-    <div class="about-gradient-box" style="padding:0; background-image:url('/images/aboutme/aboutme.JPG'); background-size:120%; background-position:20% 90%; background-repeat:no-repeat; border-radius:24px;"></div>
+    <div class="about-gradient-box" style="padding:0; background-image:url('/images/aboutme/aboutme.JPG'); background-size:120%; background-position:20% 90%; background-repeat:no-repeat; border-radius:24px;" id="about-img"></div>
   </div>
   <div class="about-text-block reveal">
     <p class="section-label">About Me</p>
@@ -117,32 +117,10 @@
 <section id="contact">
   <p class="section-label reveal">Let's Connect</p>
   <h2 class="section-title reveal">Say hello.</h2>
-  <p class="contact-sub reveal">Open to opportunities, commissions, and conversations :)</p>
-
-  <form id="contact-form" class="contact-form reveal">
-    <div class="form-row">
-      <div class="form-group">
-        <label for="name">Name <span class="required">*</span></label>
-        <input type="text" id="name" name="name" placeholder="Your name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email <span class="required">*</span></label>
-        <input type="email" id="email" name="email" placeholder="your@email.com" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="topic">Topic</label>
-      <input type="text" id="topic" name="topic" placeholder="e.g. Commission, Opportunity, Just saying hi!">
-    </div>
-    <div class="form-group">
-      <label for="message">Message <span class="required">*</span></label>
-      <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
-    </div>
-    <div class="form-footer">
-      <button type="submit" class="btn btn-primary" id="submit-btn">Send Message</button>
-      <p id="form-status" class="form-status"></p>
-    </div>
-  </form>
+  <p class="contact-sub reveal">Open to opportunities, commissions, and conversations.</p>
+  <div class="contact-cta reveal">
+    <a href="/contact" class="btn btn-primary">Get in Touch</a>
+  </div>
 </section>
 
 <%- include('include/footer') %>
@@ -159,47 +137,6 @@
     if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
   }), {threshold:0.12});
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-  // contact form submission
-  document.getElementById('contact-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const btn = document.getElementById('submit-btn');
-    const status = document.getElementById('form-status');
-    const form = document.getElementById('contact-form');
-
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    status.textContent = '';
-    status.className = 'form-status';
-
-    try {
-      const res = await fetch('/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: document.getElementById('name').value,
-          email: document.getElementById('email').value,
-          topic: document.getElementById('topic').value,
-          message: document.getElementById('message').value
-        })
-      });
-      const data = await res.json();
-      if (data.success) {
-        status.textContent = data.message;
-        status.classList.add('success');
-        form.reset();
-      } else {
-        status.textContent = data.message;
-        status.classList.add('error');
-      }
-    } catch {
-      status.textContent = 'Something went wrong. Please try again.';
-      status.classList.add('error');
-    } finally {
-      btn.textContent = 'Send Message';
-      btn.disabled = false;
-    }
-  });
 </script>
 </body>
 </html>

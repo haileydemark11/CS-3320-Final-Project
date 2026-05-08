@@ -15,9 +15,12 @@
     }
     .video-full-wrap.square { aspect-ratio: 1/1; max-width: 720px; }
     .video-full-wrap video {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%; height: 100%; object-fit: contain;
       display: block; border-radius: 16px;
     }
+    .video-pair { max-width: 1400px; margin: 0 auto; padding: 0 var(--side) 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .video-pair .video-full-wrap { aspect-ratio: 1/1; }
+    @media (max-width: 700px) { .video-pair { grid-template-columns: 1fr; } }
     
     .video-caption {
       margin-top: 0.6rem; margin-bottom: 2rem;
@@ -79,7 +82,7 @@
 <div class="video-full">
   <div class="video-full-wrap">
     <video controls preload="none" poster="/images/asim/sunglowSS.png">
-      <source src="/images/asim/sunglow.mp4" type="video/mp4">
+      <source src="https://res.cloudinary.com/dijso2iol/video/upload/q_auto/f_auto/v1778204682/sunglow_boiozo.mp4" type="video/mp4">
     </video>
   </div>
   <p class="video-caption">Sun Glow, 2026, 1280px &times; 720px</p>
@@ -95,37 +98,29 @@
   </div>
 </div>
 
-<!-- 2. Seaweed -->
-<div class="video-full">
-  <div class="video-full-wrap square">
-    <video controls preload="none" poster="/images/asim/seaweedSS.png">
-      <source src="/images/asim/seaweed.mp4" type="video/mp4">
-    </video>
+<!-- 2 & 3: Seaweed + Warped side by side -->
+<div class="video-pair">
+  <div>
+    <div class="video-full-wrap">
+      <video controls preload="none" poster="/images/asim/seaweedSS.png">
+        <source src="https://res.cloudinary.com/dijso2iol/video/upload/q_auto/f_auto/v1778204634/seaweed_xgtncx.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p class="video-caption">Seaweed, 2026, 720px &times; 720px</p>
   </div>
-  <p class="video-caption">Seaweed, 2026, 720px &times; 720px</p>
+  <div>
+    <div class="video-full-wrap">
+      <video controls preload="none" poster="/images/asim/circleSS.png">
+        <source src="https://res.cloudinary.com/dijso2iol/video/upload/q_auto/f_auto/v1778204636/circle_eyyh37.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p class="video-caption">Warped, 2026, 720px &times; 720px</p>
+  </div>
 </div>
 
 <div class="work-content">
   <p class="project-body">Seaweed grew out of an interest in fluid simulation and natural movement. I wanted to capture the way underwater plants move — never still, never erratic, always following the invisible logic of current and gravity. The square format was a deliberate choice, creating a contained world that feels more like a window than a screen.</p>
   <p class="project-body">Technically, this piece involved experimenting with particle systems constrained to behave like strands rather than individual agents. The challenge was making each element feel connected to the whole — rooted at the base, free at the tips — which required a lot of iteration around anchor points and force fields within the patch.</p>
-
-  <div class="section-divider"></div>
-  <div class="project-block">
-    <p class="project-label">Project 03</p>
-  </div>
-</div>
-
-<!-- 3. Warped -->
-<div class="video-full">
-  <div class="video-full-wrap square">
-    <video controls preload="none" poster="/images/asim/circleSS.png">
-      <source src="/images/asim/circle.mp4" type="video/mp4">
-    </video>
-  </div>
-  <p class="video-caption">Warped, 2026, 720px &times; 720px</p>
-</div>
-
-<div class="work-content">
   <p class="project-body">Warped began as a simple geometric study — what happens when you apply distortion to a circle? The answer, it turns out, is everything. Small changes in displacement, feedback, and timing produced wildly different results, from gentle pulsing forms to aggressive, almost violent distortions. The final version sits somewhere in between: familiar enough to read as circular, strange enough to feel alive.</p>
   <p class="project-body">This experiment taught me a great deal about feedback loops in TouchDesigner — how feeding the output of a process back into its own input creates behavior that compounds and evolves in ways that are difficult to predict or fully control. That loss of control, within structure, became something I actively sought rather than avoided.</p>
 
@@ -139,7 +134,7 @@
 <div class="video-full">
   <div class="video-full-wrap">
     <video controls preload="none" poster="/images/asim/wavesSS.png">
-      <source src="/images/asim/waves.mp4" type="video/mp4">
+      <source src="https://res.cloudinary.com/dijso2iol/video/upload/q_auto/f_auto/v1778204663/waves_duflvl.mp4" type="video/mp4">
     </video>
   </div>
   <p class="video-caption">Woah...Waves!, 2026, 1280px &times; 720px</p>
@@ -159,7 +154,7 @@
 <div class="video-full">
   <div class="video-full-wrap">
     <video controls preload="none" poster="/images/asim/bricksSS.png">
-      <source src="/images/asim/bricks.mp4" type="video/mp4">
+      <source src="https://res.cloudinary.com/dijso2iol/video/upload/q_auto/f_auto/v1778204630/bricks_hzb9hq.mp4" type="video/mp4">
     </video>
   </div>
   <p class="video-caption">Bricks, 2026, 1280px &times; 720px</p>
@@ -170,8 +165,21 @@
   <p class="project-body">The piece asks a quiet question: at what point does a pattern become something more? Bricks sits at that threshold — orderly enough to read as architectural, animated enough to feel organic. It was a reminder that constraint and structure are not the enemies of expression; often, they are the conditions that make expression possible.</p>
 </div>
 
-<div class="back-nav">
-  <a href="/portfolio/asim-3310">&#8592; Back to ASIM 3310</a>
+<div class="page-nav">
+  <a href="/portfolio/asim-3310/coloring" class="page-nav-link prev">
+    <span class="nav-arrow">←</span>
+    <span class="nav-text">
+      <span class="nav-label">Previous</span>
+      <span class="nav-name">Coloring</span>
+    </span>
+  </a>
+  <a href="/portfolio/asim-3310" class="page-nav-link next">
+    <span class="nav-arrow">→</span>
+    <span class="nav-text">
+      <span class="nav-label">Back to</span>
+      <span class="nav-name">ASIM 3310</span>
+    </span>
+  </a>
 </div>
 
 <%- include('include/footer') %>

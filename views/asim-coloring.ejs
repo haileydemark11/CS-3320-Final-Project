@@ -60,7 +60,7 @@
   <a href="/portfolio/asim-3310" class="back-link">&#8592; Back to ASIM 3310</a>
   <p class="page-eyebrow">Project &mdash; Spring 2026</p>
   <h1 class="page-title">Coloring</h1>
-  <p class="page-desc">An interactive generative piece exploring color, form, and user-driven visual composition through TouchDesigner.</p>
+  <p class="page-desc">An interactive visual and audio-reactive piece that lets users paint on screen through hand gestures, playful movement, and a custom Sonic Pi soundtrack.</p>
   <div class="page-tags">
     <span class="tag">TouchDesigner</span>
     <span class="tag">Generative Art</span>
@@ -76,18 +76,27 @@
       <source src="https://res.cloudinary.com/dijso2iol/video/upload/q_auto/f_auto/v1778204692/coloring_ovfg1z.mp4" type="video/mp4">
     </video>
   </div>
-  <p class="video-caption">Coloring, 2026</p>
+  <p class="video-caption">Coloring, 2026, 1280px &times; 720px, TouchDesigner and Sonic Pi</p>
 </div>
 
-<!-- First paragraph block -->
+<!-- First -- About the Work -->
 <div class="work-content">
   <p class="project-body">
-    Coloring began as an investigation into how digital systems can replicate the intuitive, tactile quality of mark-making. Working in TouchDesigner, I explored how color — its hue, saturation, and movement — could be treated not as a property of form but as a form in itself. The result is a system that feels less like a program and more like a medium, something you move through rather than simply observe.
+    Coloring is an interactive TouchDesigner piece that turns hand movement into a digital painting tool. Using a computer camera and MediaPipe hand tracking, the work lets users paint with layered video textures, generated color, and manipulated live camera imagery.
   </p>
   <p class="project-body">
-    The piece draws on the visual language of traditional coloring — the layering of pigment, the rhythm of a hand moving across a surface — and translates it into a generative context. Each pass through the system produces something slightly different, shaped by timing, input, and the inherent unpredictability of the patch itself.
+    The piece was inspired by the connection between storytelling, gesture, music, and play. Instead of using a mouse or keyboard, users shape the artwork with their hands, making the experience feel physical, expressive, and personal.
   </p>
 
+  <div class="section-divider"></div>
+</div>
+
+<!-- Second -- Interaction -->
+<div class="work-content">
+  <p class="project-body">
+    The first hand controls the visual painting experience. A pinch between the pointer finger and thumb changes the brush size, a thumbs-up switches between four brush styles, and pointing upward clears the screen for a fresh start. 
+    The second hand controls the audio cutoff by pinching, allowing users to shape the custom soundtrack while they paint.
+  </p>
   <div class="section-divider"></div>
 </div>
 
@@ -96,10 +105,10 @@
   <img src="/images/asim/coloringTDpatch.jpg" alt="TouchDesigner patch for Coloring" loading="lazy">
 </div>
 
-<!-- Second paragraph block -->
+<!-- TD block -->
 <div class="work-content">
   <p class="project-body">
-    Building the patch for Coloring required thinking carefully about the flow of data — how a signal moves through a network of operators and transforms at each stage into something new. The TouchDesigner patch became its own kind of drawing, a diagram of decisions made in real time, each node a choice about what to keep, what to discard, and what to amplify.
+    This patch brings together camera input, MediaPipe tracking, gesture recognition, video manipulation, generated visuals, and audio control. I built the system so each gesture connects directly to a creative action, turning the user’s hand into both a brush and a controller.
   </p>
   <p class="project-body">
     This process deepened my understanding of TouchDesigner as a compositional tool rather than simply a rendering engine. The patch is not just infrastructure; it is part of the work itself — a record of process made visible.
@@ -117,13 +126,17 @@
   </div>
 </div>
 
-<!-- Final paragraph block -->
+<!-- Sonic Pi block -->
 <div class="work-content">
   <p class="project-body">
-    The code behind Coloring reflects the iterative nature of the entire project. Rather than writing toward a fixed outcome, I wrote toward a feeling — adjusting parameters, testing variations, and letting the system surprise me. This approach to coding, more exploratory than prescriptive, felt closer to sketching than engineering, and produced results I could not have planned in advance.
+    I coded the soundtrack in Sonic Pi to feel fun, whimsical, and loopable, like background music for a playful video game. The song repeats with slight variations so it supports the interaction without feeling static.
   </p>
+</div>
+
+<!-- Live demo block -->
+<div class="work-content">
   <p class="project-body">
-    Looking back, Coloring stands as one of the most process-driven pieces I made in the course. It is less about what you see and more about how it came to be — a record of curiosity, iteration, and the particular pleasure of not quite knowing where something is going until it arrives.
+    Coloring was presented during my final class critique, where students tested the patch and created their own playful compositions. The live demo showed how each user brought a different rhythm, gesture, and personality to the piece.
   </p>
 </div>
 

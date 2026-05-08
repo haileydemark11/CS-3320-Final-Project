@@ -13,10 +13,10 @@
     .case-subtitle { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-light); margin-bottom: 1.8rem; }
     .case-intro { font-family: var(--serif); font-size: clamp(1rem, 1.8vw, 1.25rem); font-style: italic; font-weight: 300; color: var(--text-mid); max-width: 620px; line-height: 1.7; margin-bottom: 2rem; }
 
-    .case-body { padding: 0 var(--side) 6rem; max-width: 1400px; margin: 0 auto; }
+    .case-body { padding: 0 var(--side) 2rem; max-width: 1400px; margin: 0 auto; }
     .gallery-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(200,170,100,0.3), transparent); margin-bottom: 4rem; }
 
-    .case-section { margin-bottom: 4rem; }
+    .case-section { margin-bottom: 6rem; }
     .section-header { display: grid; grid-template-columns: 1fr 1.8fr; gap: 4rem; align-items: start; margin-bottom: 2rem; }
     .section-meta { position: sticky; top: 6rem; }
     .section-number { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.5rem; }
@@ -116,37 +116,16 @@
   <div class="case-section">
     <div class="section-header">
       <div class="section-meta">
-        <p class="section-number">02 &mdash; Visualize</p>
-        <h2 class="section-name">Visualizations</h2>
-        <p class="section-desc">The Visualize page is the core of Democracy Viewer, where users configure data analysis through a settings panel and render interactive plots. I refined the experience to make navigation more intuitive and to better highlight the platform's graphing capabilities.</p>
-        <p class="section-desc" style="margin-top:0.8rem;">Because the platform's features can feel overwhelming for new users, I designed a built in Guided Mode that overlays step by step instructions directly on the page. It can be easily toggled on or off, allowing both first time and experienced users to customize the level of guidance they need.</p>
-      </div>
-      <div class="img-grid-2">
-        <div class="case-img" onclick="openLightbox(1)">
-          <img src="/images/uiux/DV/DVvisual.jpg" alt="Visualize Page">
-          <p class="img-label">Visualize &mdash; bar plot view</p>
-        </div>
-        <div class="case-img" onclick="openLightbox(2)">
-          <img src="/images/uiux/DV/DVvisualTips.jpg" alt="Guided Mode">
-          <p class="img-label">Visualize &mdash; Guided Mode on</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="case-section">
-    <div class="section-header">
-      <div class="section-meta">
-        <p class="section-number">03 &mdash; Authentication &amp; Upload</p>
+        <p class="section-number">02 &mdash; Authentication &amp; Upload</p>
         <h2 class="section-name">Sign In &amp; Upload</h2>
         <p class="section-desc">A cohesive sign in and upload experience. The upload page features a simple authentication and upload flow that allows users to contribute datasets through CSV files or external API connections, supporting easy and accessible data sharing.</p>
       </div>
-      <div class="img-grid-2">
-        <div class="case-img" onclick="openLightbox(3)">
+      <div class="img-grid-1">
+        <div class="case-img" onclick="openLightbox(1)">
           <img src="/images/uiux/DV/DVsignin.jpg" alt="Sign In Page">
           <p class="img-label">Sign In page</p>
         </div>
-        <div class="case-img" onclick="openLightbox(4)">
+        <div class="case-img" style="margin-top: var(--gap);" onclick="openLightbox(2)">
           <img src="/images/uiux/DV/DVupload.jpg" alt="Upload Dataset Page">
           <p class="img-label">Upload Dataset page</p>
         </div>
@@ -157,14 +136,35 @@
   <div class="case-section">
     <div class="section-header">
       <div class="section-meta">
-        <p class="section-number">04 &mdash; Search</p>
+        <p class="section-number">03 &mdash; Search</p>
         <h2 class="section-name">Subsearch Datasets</h2>
         <p class="section-desc">The Subsearch Datasets page allows researchers to browse and filter the platform's growing library of text-based datasets. Users can search by keyword or open the Advanced Filter to narrow results by title, description, owner, privacy, or tags. My redesign refines the layout and filter interface to feel more intuitive, organized, and visually consistent with the rest of the platform.</p>
       </div>
       <div class="img-grid-1">
-        <div class="case-img" onclick="openLightbox(5)">
+        <div class="case-img" onclick="openLightbox(3)">
           <img src="/images/uiux/DV/DVsubsearch.jpg" alt="Subsearch Datasets">
           <p class="img-label">Subsearch Datasets page</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-section">
+    <div class="section-header">
+      <div class="section-meta">
+        <p class="section-number">04 &mdash; Visualize</p>
+        <h2 class="section-name">Visualizations</h2>
+        <p class="section-desc">The Visualize page is the core of Democracy Viewer, where users configure data analysis through a settings panel and render interactive plots. I refined the experience to make navigation more intuitive and to better highlight the platform's graphing capabilities.</p>
+        <p class="section-desc" style="margin-top:0.8rem;">Because the platform's features can feel overwhelming for new users, I designed a built in Guided Mode that overlays step by step instructions directly on the page. It can be easily toggled on or off, allowing both first time and experienced users to customize the level of guidance they need.</p>
+      </div>
+      <div class="img-grid-1">
+        <div class="case-img" onclick="openLightbox(4)">
+          <img src="/images/uiux/DV/DVvisual.jpg" alt="Visualize Page">
+          <p class="img-label">Visualize &mdash; bar plot view</p>
+        </div>
+        <div class="case-img" style="margin-top: var(--gap);" onclick="openLightbox(5)">
+          <img src="/images/uiux/DV/DVvisualTips.jpg" alt="Guided Mode">
+          <p class="img-label">Visualize &mdash; Guided Mode on</p>
         </div>
       </div>
     </div>
@@ -209,11 +209,11 @@
 <script>
   const imgs = [
     { src:'/images/uiux/DV/DVhome.jpg',       title:'Home Page' },
-    { src:'/images/uiux/DV/DVvisual.jpg',      title:'Visualize &mdash; Bar Plot' },
-    { src:'/images/uiux/DV/DVvisualTips.jpg',  title:'Visualize &mdash; Guided Mode' },
     { src:'/images/uiux/DV/DVsignin.jpg',      title:'Sign In Page' },
     { src:'/images/uiux/DV/DVupload.jpg',      title:'Upload Dataset' },
     { src:'/images/uiux/DV/DVsubsearch.jpg',   title:'Subsearch Datasets' },
+    { src:'/images/uiux/DV/DVvisual.jpg',      title:'Visualize &mdash; Bar Plot' },
+    { src:'/images/uiux/DV/DVvisualTips.jpg',  title:'Visualize &mdash; Guided Mode' },
     { src:'/images/uiux/DV/DVack.jpg',         title:'Meet the Team' },
   ];
   let cur = 0;

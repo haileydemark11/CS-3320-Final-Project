@@ -5,8 +5,11 @@
   <style>
     nav { --nav-bg: rgba(216,238,248,0.85); background: rgba(216,238,248,0.85); border-bottom: 1px solid rgba(160,200,230,0.2); }
 
+    /* Lock all content to same container so left edges align */
+    .page-hero { max-width: 1280px; }
+
     /* CONTENT SECTIONS */
-    .install-content { max-width: 1400px; margin: 0 auto; padding: 0 var(--side); }
+    .install-content { max-width: 1280px; margin: 0 auto; padding: 0 var(--side); }
     .section-label {
       font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em;
       text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem;
@@ -17,7 +20,8 @@
     }
 
     /* FULL-WIDTH VIDEO */
-    .video-full { max-width: 1400px; margin: 0 auto; padding: 0 var(--side) 3rem; }
+    .video-full { max-width: 1280px; margin: 0 auto; padding: 0 var(--side) 1rem; }
+    .video-full.spaced { padding-top: 2.5rem; padding-bottom: 1rem; }
     .video-full-wrap {
       width: 100%; border-radius: 16px; overflow: hidden;
       background: #0e0a1a; aspect-ratio: 16/9;
@@ -28,8 +32,11 @@
     }
     .video-full-caption {
       margin-top: 0.7rem; font-family: var(--serif);
-      font-size: 0.9rem; font-style: italic; color: var(--text-light);
+      font-size: 1.15rem; font-style: italic; color: var(--text-light);
     }
+
+    /* tighter dividers on this page */
+    .section-divider { margin: 1.2rem 0 1.2rem; }
 
     /* BACK NAV */
     .back-nav {
@@ -124,7 +131,7 @@
 </div>
 
 <!-- Installation view 3 -->
-<div class="video-full">
+<div class="video-full spaced">
   <div class="video-full-wrap">
     <video controls preload="none" poster="/images/generative/flutter_install3_SS.jpg">
       <source src="https://res.cloudinary.com/dijso2iol/video/upload/q_auto/f_auto/v1778204874/flutter_install3_s5gh8c.mp4" type="video/mp4">

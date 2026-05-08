@@ -5,19 +5,23 @@
   <style>
     nav { --nav-bg: rgba(216,238,248,0.85); background: rgba(216,238,248,0.85); border-bottom: 1px solid rgba(160,200,230,0.2); }
 
+    /* Lock all content to same container so left edges align */
+    .page-hero { max-width: 1280px; }
+
     /* CONTENT SECTIONS */
-    .install-content { max-width: 1400px; margin: 0 auto; padding: 0 var(--side); }
+    .install-content { max-width: 1280px; margin: 0 auto; padding: 0 var(--side); }
     .section-label {
       font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em;
       text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem;
     }
     .section-body {
       font-size: 1rem; color: var(--text-mid); line-height: 1.85;
-      max-width: 680px; margin-bottom: 2rem;
+      max-width: 1280px; margin-bottom: 2rem;
     }
 
     /* FULL-WIDTH VIDEO */
-    .video-full { max-width: 1400px; margin: 0 auto; padding: 0 var(--side) 3rem; }
+    .video-full { max-width: 1280px; margin: 0 auto; padding: 0 var(--side) 2rem; }
+    .video-full.spaced { padding-top: 2.5rem; padding-bottom: 3rem; }
     .video-full-wrap {
       width: 100%; border-radius: 16px; overflow: hidden;
       background: #0e0a1a; aspect-ratio: 16/9;
@@ -35,7 +39,7 @@
     }
     .video-full-caption {
       margin-top: 0.7rem; font-family: var(--serif);
-      font-size: 0.9rem; font-style: italic; color: var(--text-light);
+      font-size: 1.15rem; font-style: italic; color: var(--text-light);
     }
 
     /* BACK NAV */
@@ -51,6 +55,9 @@
       text-decoration: none; transition: color 0.2s, gap 0.2s;
     }
     .back-nav a:hover { color: var(--text-dark); gap: 0.9rem; }
+
+    /* tighter dividers on this page */
+    .section-divider { margin: 2rem 0 1.8rem; }
 
     @media (max-width: 600px) { :root { --side: 1.2rem; } }
   </style>
@@ -91,19 +98,16 @@
   <p class="section-body">
     Tree of Life is an audio-reactive, generative installation that explores themes of life, growth, and interconnectedness through light, motion, and sound.
     Designed as a projection-mapped experience, the piece transforms a static tree into a living system that responds to music.
-  </p>
-  <p class="section-body">
     In my childhood home, my family had a beautiful, grand Elm tree that I used to play under a lot as a kid. I chose an Elm tree as the foundation
     of this piece since it reminded me of youth, family, and stability. However, upon research, I discovered that the Elm tree is a prominent symbol
     across many cultures, and can be associated with life, strength, and resilience. It is associated with life in many cultures because the tree can
-    survive in various conditions and can be viewed as a metaphor for spiritual growth. Although my faith was the foundation for this installation,
-    it is not meant to be observed as a religious piece. Instead, I wanted to create something that anyone could connect with.
+    survive in various conditions and can be viewed as a metaphor for spiritual growth.
   </p>
   <p class="section-body">
+    Although my faith was the foundation for this installation,
+    it is not meant to be observed as a religious piece. Instead, I wanted to create something that anyone could connect with.
     I titled this piece "Tree of Life" because it is a universal symbol, with significant meaning in most religions and cultures.
     My goal in creating this piece is that people could find their own meaning and appreciation.
-  </p>
-  <p class="section-body">
     I wanted to combine different aspects of the human experience. It was important for me to include audio in some aspect, so I decided to code music
     to drive my visuals for this piece. I also wanted to showcase the technical aspects of this piece, so I included the data points and path in the graphics.
     The full piece comes together through an immersive installation that invites the audience to further interact with and reflect on it.
@@ -116,8 +120,6 @@
     and drew inspiration from artists like Finnbogi Pétursson and James Turrell, focusing on how light, water,
     sound, and space can evoke emotion. I was particularly drawn to themes of water, light, awe, and life —
     elements that ultimately shaped the direction of the piece.
-  </p>
-  <p class="section-body">
     I initially experimented with 3D modeling in Blender, Cinema 4D, and TouchDesigner, but later
     shifted toward manipulating a 2D rendered image to better align with my conceptual goals.
     After sourcing and optimizing a detailed Elm tree model, I processed and adapted it for use in
@@ -128,14 +130,10 @@
     slightly randomized musical patterns, I created a soundtrack that loops seamlessly while still
     introducing variation. This audio directly drives the visual system, mapping amplitude and frequency
     data to movement, distortion, and color shifts across the tree in real time.
-  </p>
-  <p class="section-body">
     To further emphasize the technical layer of the work, I visualized underlying motion data
     through magenta tracking squares that appear across the surface at each frame. This element
     reveals the system behind the visuals, reflecting my interest in using technology not just as a tool,
     but as a visible part of the artistic experience.
-  </p>
-  <p class="section-body">
     The final system runs continuously, evolving over time with subtle variation driven by the generative audio,
     ensuring that no two moments are exactly the same.
   </p>
@@ -146,22 +144,18 @@
     To bring the piece into a physical space, I used TouchDesigner to explore projection mapping and real-time visual output.
     This allowed me to think beyond the screen and consider how the visuals would interact with surfaces, scale, and
     the space, transforming the work into a more immersive installation experience.
-  </p>
-  <p class="section-body">
     A major part of this process involved learning new tools from scratch. Prior to this project,
     I had only worked with Adobe applications and Figma; Blender, Cinema 4D, TouchDesigner, and Sonic Pi were all new to me.
     This introduced a significant learning curve, requiring extensive self-teaching through tutorials,
-    experimentation, and failure. However, this process was incredibly rewarding and allowed me to expand my technical skill set while creating mini pieces through the process.
-  </p>
-  <p class="section-body">
-    Over time, I became more comfortable navigating these tools and integrating them into a cohesive workflow.
-    This process not only shaped the final outcome of the piece, but also strengthened my ability to quickly learn
+    experimentation, and failure. However, this process was incredibly rewarding and allowed me to expand my technical skill set 
+    while creating mini pieces through the process. Over time, I became more comfortable navigating these tools and integrating them 
+    into a cohesive workflow. This process not only shaped the final outcome of the piece, but also strengthened my ability to quickly learn
     new technologies and apply them creatively.
   </p>
 </div>
 
 <!-- Installation video full width -->
-<div class="video-full">
+<div class="video-full spaced">
   <div class="video-full-wrap">
     <video controls preload="none" poster="/images/generative/ToLinstallSS.jpg">
       <source src="https://res.cloudinary.com/dijso2iol/video/upload/q_auto/f_auto/v1778204814/ToLinstall_bkrwpv.mp4" type="video/mp4">
@@ -177,13 +171,9 @@
     Tree of Life was exhibited at SMU's Meadows School of the Arts in the Doolean Gallery as a large-scale,
     projection-mapped installation. Projected onto a gallery wall, the piece transformed the space into an
     immersive environment rather than a traditional screen-based display.
-  </p>
-  <p class="section-body">
     The work was paired with a generative soundtrack played through surrounding speakers, allowing the audio
     to directly influence the visual output in real time. As the music evolved, the tree responded, shifting
     in movement, distortion, and form to create a continuously changing, living system.
-  </p>
-  <p class="section-body">
     By merging projection, sound, and generative visuals, the installation invited viewers to slow down and
     engage with the piece as an experience rather than a static image. It was designed to evoke reflection
     and foster a deeper connection to themes of beauty, growth, change, and interconnectedness.
@@ -191,11 +181,11 @@
 </div>
 
 <!-- Installation photo -->
-<div class="video-full">
-  <div class="video-full-wrap" style="aspect-ratio: auto; background: transparent; max-width: 800px; margin: 0 auto;">
+<div class="video-full" style="margin-top: 3.5rem;">
+  <div class="video-full-wrap" style="aspect-ratio: auto; background: transparent; max-width: 600px; margin: 0 auto;">
     <img src="/images/generative/ToLinstall2.jpeg" alt="Tree of Life installation photo" loading="lazy">
   </div>
-  <p class="video-full-caption" style="max-width:800px; margin-left:auto; margin-right:auto;">Installation and Artist &mdash; SMU Meadows Doolean Gallery, December 2025</p>
+  <p class="video-full-caption" style="max-width:580px; margin-left:auto; margin-right:auto;">Installation and Artist &mdash; SMU Meadows Doolean Gallery, December 2025</p>
 </div>
 
 <div class="page-nav">

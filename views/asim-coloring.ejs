@@ -6,9 +6,21 @@
     .gradient-asim { background: linear-gradient(160deg, #d0ecd8 0%, #e8f0d0 50%, #f8f0c8 100%) !important; }
     nav { --nav-bg: rgba(208,236,216,0.95); background: rgba(208,236,216,0.85); border-bottom: 1px solid rgba(120,180,130,0.2); }
 
-    .work-content { max-width: 1400px; margin: 0 auto; padding: 0 var(--side); }
+    /* Lock all content to same container so left edges align */
+    .page-hero { max-width: 1280px; }
 
-    .video-full { max-width: 1400px; margin: 0 auto; padding: 0 var(--side) 1rem; }
+    .install-content { max-width: 1280px; margin: 0 auto; padding: 0 var(--side); }
+    .section-label {
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem;
+    }
+    .section-body {
+      font-size: 1rem; color: var(--text-mid); line-height: 1.85;
+      max-width: 680px; margin-bottom: 2rem;
+    }
+
+    .video-full { max-width: 1280px; margin: 0 auto; padding: 0 var(--side) 1rem; }
+    .video-full.spaced { padding-top: 2.5rem; padding-bottom: 1rem; }
     .video-full-wrap {
       width: 100%; border-radius: 16px; overflow: hidden;
       background: #0e0a1a; aspect-ratio: 16/9;
@@ -17,23 +29,20 @@
       width: 100%; height: 100%; object-fit: cover;
       display: block; border-radius: 16px;
     }
-    .video-caption {
-      margin-top: 0.6rem; margin-bottom: 2rem;
-      font-family: var(--serif); font-size: 1.15rem;
-      font-style: italic; color: var(--text-light);
+    .video-full-caption {
+      margin-top: 0.7rem; font-family: var(--serif);
+      font-size: 1.15rem; font-style: italic; color: var(--text-light);
     }
 
     /* Full width image */
-    .img-full { max-width: 1400px; margin: 0 auto; padding: 0 var(--side) 2rem; }
+    .img-full { max-width: 1280px; margin: 0 auto; padding: 0 var(--side) 1rem; }
     .img-full img {
       width: 100%; border-radius: 16px;
       display: block; object-fit: cover;
     }
 
-    .project-body {
-      font-size: 1rem; color: var(--text-mid); line-height: 1.85;
-      max-width: 680px; margin-bottom: 2.5rem;
-    }
+    /* tighter dividers */
+    .section-divider { margin: 1.2rem 0 1.2rem; }
 
     .back-nav {
       max-width: 1400px; margin: 2rem auto 0;
@@ -76,28 +85,29 @@
       <source src="https://res.cloudinary.com/dijso2iol/video/upload/q_auto/f_auto/v1778204692/coloring_ovfg1z.mp4" type="video/mp4">
     </video>
   </div>
-  <p class="video-caption">Coloring, 2026, 1280px &times; 720px, TouchDesigner and Sonic Pi</p>
+  <p class="video-full-caption">Coloring, 2026, 1280px &times; 720px, TouchDesigner and Sonic Pi</p>
 </div>
 
-<!-- First -- About the Work -->
-<div class="work-content">
-  <p class="project-body">
+<!-- About the Work -->
+<div class="install-content">
+  <div class="section-divider"></div>
+  <p class="section-label">About the Work</p>
+  <p class="section-body">
     Coloring is an interactive TouchDesigner piece that turns hand movement into a digital painting tool. Using a computer camera and MediaPipe hand tracking, the work lets users paint with layered video textures, generated color, and manipulated live camera imagery.
   </p>
-  <p class="project-body">
+  <p class="section-body">
     The piece was inspired by the connection between storytelling, gesture, music, and play. Instead of using a mouse or keyboard, users shape the artwork with their hands, making the experience feel physical, expressive, and personal.
   </p>
-
-  <div class="section-divider"></div>
 </div>
 
-<!-- Second -- Interaction -->
-<div class="work-content">
-  <p class="project-body">
-    The first hand controls the visual painting experience. A pinch between the pointer finger and thumb changes the brush size, a thumbs-up switches between four brush styles, and pointing upward clears the screen for a fresh start. 
+<!-- Interaction -->
+<div class="install-content">
+  <div class="section-divider"></div>
+  <p class="section-label">Interaction</p>
+  <p class="section-body">
+    The first hand controls the visual painting experience. A pinch between the pointer finger and thumb changes the brush size, a thumbs-up switches between four brush styles, and pointing upward clears the screen for a fresh start.
     The second hand controls the audio cutoff by pinching, allowing users to shape the custom soundtrack while they paint.
   </p>
-  <div class="section-divider"></div>
 </div>
 
 <!-- TouchDesigner patch image -->
@@ -105,20 +115,20 @@
   <img src="/images/asim/coloringTDpatch.jpg" alt="TouchDesigner patch for Coloring" loading="lazy">
 </div>
 
-<!-- TD block -->
-<div class="work-content">
-  <p class="project-body">
-    This patch brings together camera input, MediaPipe tracking, gesture recognition, video manipulation, generated visuals, and audio control. I built the system so each gesture connects directly to a creative action, turning the user’s hand into both a brush and a controller.
+<!-- The Process -->
+<div class="install-content">
+  <div class="section-divider"></div>
+  <p class="section-label">The Process</p>
+  <p class="section-body">
+    This patch brings together camera input, MediaPipe tracking, gesture recognition, video manipulation, generated visuals, and audio control. I built the system so each gesture connects directly to a creative action, turning the user's hand into both a brush and a controller.
   </p>
-  <p class="project-body">
+  <p class="section-body">
     This process deepened my understanding of TouchDesigner as a compositional tool rather than simply a rendering engine. The patch is not just infrastructure; it is part of the work itself — a record of process made visible.
   </p>
-
-  <div class="section-divider"></div>
 </div>
 
-<!-- Code video, no caption -->
-<div class="video-full">
+<!-- Code video -->
+<div class="video-full spaced">
   <div class="video-full-wrap">
     <video controls preload="none" poster="/images/asim/coloringcodeSS.jpg">
       <source src="https://res.cloudinary.com/dijso2iol/video/upload/q_auto/f_auto/v1778204737/coloringcode_c4u4xu.mp4" type="video/mp4">
@@ -126,16 +136,20 @@
   </div>
 </div>
 
-<!-- Sonic Pi block -->
-<div class="work-content">
-  <p class="project-body">
+<!-- Sonic Pi -->
+<div class="install-content">
+  <div class="section-divider"></div>
+  <p class="section-label">Sonic Pi</p>
+  <p class="section-body">
     I coded the soundtrack in Sonic Pi to feel fun, whimsical, and loopable, like background music for a playful video game. The song repeats with slight variations so it supports the interaction without feeling static.
   </p>
 </div>
 
-<!-- Live demo block -->
-<div class="work-content">
-  <p class="project-body">
+<!-- The Presentation -->
+<div class="install-content">
+  <div class="section-divider"></div>
+  <p class="section-label">The Presentation</p>
+  <p class="section-body">
     Coloring was presented during my final class critique, where students tested the patch and created their own playful compositions. The live demo showed how each user brought a different rhythm, gesture, and personality to the piece.
   </p>
 </div>

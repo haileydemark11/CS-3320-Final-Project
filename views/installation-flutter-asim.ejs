@@ -6,7 +6,10 @@
     .gradient-asim { background: linear-gradient(160deg, #d0ecd8 0%, #e8f0d0 50%, #f8f0c8 100%) !important; }
     nav { --nav-bg: rgba(208,236,216,0.95); background: rgba(208,236,216,0.85); border-bottom: 1px solid rgba(120,180,130,0.2); }
 
-    .install-content { max-width: 1400px; margin: 0 auto; padding: 0 var(--side); }
+    /* Lock all content to same container so left edges align */
+    .page-hero { max-width: 1280px; }
+
+    .install-content { max-width: 1280px; margin: 0 auto; padding: 0 var(--side); }
     .section-label {
       font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em;
       text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem;
@@ -16,7 +19,8 @@
       max-width: 680px; margin-bottom: 2rem;
     }
 
-    .video-full { max-width: 1400px; margin: 0 auto; padding: 0 var(--side) 3rem; }
+    .video-full { max-width: 1280px; margin: 0 auto; padding: 0 var(--side) 1rem; }
+    .video-full.spaced { padding-top: 2.5rem; padding-bottom: 1rem; }
     .video-full-wrap {
       width: 100%; border-radius: 16px; overflow: hidden;
       background: #0e0a1a; aspect-ratio: 16/9;
@@ -27,8 +31,11 @@
     }
     .video-full-caption {
       margin-top: 0.7rem; font-family: var(--serif);
-      font-size: 0.9rem; font-style: italic; color: var(--text-light);
+      font-size: 1.15rem; font-style: italic; color: var(--text-light);
     }
+
+    /* tighter dividers */
+    .section-divider { margin: 1.2rem 0 1.2rem; }
 
     .back-nav {
       max-width: 1400px; margin: 2rem auto 0;
@@ -65,6 +72,7 @@
 
 <!-- Installation view 1 -->
 <div class="video-full">
+  <div class="gallery-divider"></div>
   <div class="video-full-wrap">
     <video controls preload="none" poster="/images/generative/flutter_install1_SS.jpg">
       <source src="https://res.cloudinary.com/dijso2iol/video/upload/q_auto/f_auto/v1778204921/flutter_install1_dyfpog.mp4" type="video/mp4">
@@ -108,7 +116,7 @@
 </div>
 
 <!-- Installation view 3 -->
-<div class="video-full">
+<div class="video-full spaced">
   <div class="video-full-wrap">
     <video controls preload="none" poster="/images/generative/flutter_install3_SS.jpg">
       <source src="https://res.cloudinary.com/dijso2iol/video/upload/q_auto/f_auto/v1778204874/flutter_install3_s5gh8c.mp4" type="video/mp4">
@@ -133,7 +141,7 @@
 </div>
 
 <!-- Main generative video -->
-<div class="video-full">
+<div class="video-full spaced">
   <div class="gallery-divider"></div>
   <div class="video-full-wrap">
     <video controls preload="none" poster="/images/generative/flutterSS.jpg">

@@ -43,7 +43,10 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_PASS
-  }
+  },
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 10000
 });
 
 // ── ROUTES ──
@@ -93,20 +96,27 @@ app.post('/contact', contactLimiter, async (req, res) => {
   }
 
   try {
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,
-      replyTo: email,
-      subject: `New message from ${name}${topic ? ` — ${topic}` : ''}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        ${topic ? `<p><strong>Topic:</strong> ${topic}</p>` : ''}
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-      `
-    });
+    const sendTimeout = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Email timeout')), 12000)
+    );
+
+    await Promise.race([
+      transporter.sendMail({
+        from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
+        to: process.env.GMAIL_USER,
+        replyTo: email,
+        subject: `New message from ${name}${topic ? ` — ${topic}` : ''}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          ${topic ? `<p><strong>Topic:</strong> ${topic}</p>` : ''}
+          <p><strong>Message:</strong></p>
+          <p>${message.replace(/\n/g, '<br>')}</p>
+        `
+      }),
+      sendTimeout
+    ]);
 
     dailyCount++;
     res.json({ success: true, message: 'Your message was sent! I\'ll be in touch soon.' });

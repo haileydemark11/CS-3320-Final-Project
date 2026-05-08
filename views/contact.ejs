@@ -2,15 +2,94 @@
 <html lang="en">
 <head>
   <%- include('include/head', { title: 'Contact', extraCSS: ['home.css'] }) %>
+  <style>
+    /* ── CONTACT FORM ── */
+    .contact-form {
+      width: 100%;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+    }
+
+    .required { color: #c9a96e; }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(180, 150, 200, 0.25);
+      background: rgba(255, 255, 255, 0.45);
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: rgba(180, 150, 200, 0.6);
+      box-shadow: 0 0 0 3px rgba(180, 150, 200, 0.12);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    /* Button + status stacked and centered */
+    .form-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .form-status {
+      font-size: 0.9rem;
+      min-height: 1.2em;
+      text-align: center;
+    }
+    .form-status.success { color: #6a9e6a; }
+    .form-status.error   { color: #c0605a; }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 <div class="gradient-bg"></div>
 
 <%- include('include/header-nav') %>
 
-<div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 4rem var(--side) 4rem; margin-top: -4rem;">
+<div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 6rem var(--side) 4rem;">
   <div style="width: 100%; max-width: 640px; text-align: center;">
-    <h1 class="page-title" style="font-size: clamp(3rem, 7vw, 6rem); margin-bottom: 1rem;">Let's Conntect</h1>
+    <h1 class="page-title" style="font-size: clamp(3rem, 7vw, 6rem); margin-bottom: 1rem;">Let's Connect</h1>
     <p class="page-desc" style="margin: 0 auto 3rem; text-align: center;">Fill out the form below and I'll get back to you soon.</p>
 
     <form id="contact-form" class="contact-form" style="text-align: left;">
@@ -32,7 +111,7 @@
         <label for="message">Message <span class="required">*</span></label>
         <textarea id="message" name="message" rows="6" placeholder="" required></textarea>
       </div>
-      <div class="form-footer" style="justify-content: center;">
+      <div class="form-footer">
         <button type="submit" class="btn btn-primary" id="submit-btn">Send Message</button>
         <p id="form-status" class="form-status"></p>
       </div>

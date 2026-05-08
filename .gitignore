@@ -5,3 +5,11 @@ node_modules/
 
 
 .vscode/
+
+.env
+
+
+*.mp4
+*.mov
+*.MP4
+*.MOV

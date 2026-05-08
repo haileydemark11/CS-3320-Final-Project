@@ -100,6 +100,7 @@ section { padding: 7rem 3rem; max-width: 1280px; margin: 0 auto; }
 .detail-value { color: var(--text-dark); line-height: 1.5; }
 
 /* contact */
+/* 
 #contact { text-align: center; padding: 7rem 3rem 9rem; }
 #contact .section-title { font-size: clamp(2.8rem, 6vw, 5rem); margin-bottom: 1.2rem; }
 .contact-sub { color: var(--text-light); margin-bottom: 3rem; font-style: italic; font-family: var(--serif); font-size: 1.2rem; }
@@ -108,7 +109,34 @@ section { padding: 7rem 3rem; max-width: 1280px; margin: 0 auto; }
 .contact-link-email { background: linear-gradient(135deg, var(--peach), var(--blush)); color: #221830; border: 1px solid rgba(200,170,100,0.2); }
 .contact-link-email:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(248,200,128,0.35); }
 .contact-link-linkedin { background: linear-gradient(135deg, #fde0c8 0%, #f8c0d0 100%); color: #6a2840; border: 1px solid rgba(220,160,180,0.25); }
-.contact-link-linkedin:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(220,160,180,0.4); }
+.contact-link-linkedin:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(220,160,180,0.4); } */
+
+
+/* contact form */
+.contact-form { max-width: 680px; margin: 0 auto; text-align: left; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+.form-group label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); }
+.required { color: var(--blush-mid); }
+.form-group input, .form-group textarea {
+  padding: 0.8rem 1rem; border-radius: 10px; border: 1px solid rgba(200,170,100,0.25);
+  background: rgba(255,255,255,0.45); font-family: var(--sans); font-size: 0.9rem;
+  color: var(--text-dark); transition: border 0.2s, background 0.2s;
+  backdrop-filter: blur(8px); resize: vertical;
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-light); }
+.form-group input:focus, .form-group textarea:focus {
+  outline: none; border-color: rgba(200,170,100,0.5);
+  background: rgba(255,255,255,0.65);
+}
+.form-footer { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.form-status { font-size: 0.85rem; font-family: var(--serif); font-style: italic; color: var(--text-mid); }
+.form-status.error { color: #c0404080; }
+.form-status.success { color: #40804080; }
+
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+}
 
 /* responsive */
 @media (max-width: 900px) {

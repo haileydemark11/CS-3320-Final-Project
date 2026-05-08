@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import rateLimit from 'express-rate-limit';
 import 'dotenv/config';
 import sanitizeHtml from 'sanitize-html';
@@ -40,19 +40,80 @@ function checkDailyLimit() {
   return dailyCount < DAILY_LIMIT;
 }
 
-// ── NODEMAILER TRANSPORTER ──
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS
-  },
-  connectionTimeout: 10000,
-  greetingTimeout: 10000,
-  socketTimeout: 10000
+// ── RESEND SETUP ──
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// ── ROUTES ──
+// Home
+app.get('/', (req, res) => res.render('home', { homeNav: true }));
+
+// Portfolio hub
+app.get('/portfolio', (req, res) => res.render('portfolio', { homeNav: false }));
+
+// Gallery pages
+app.get('/portfolio/traditional-art',  (req, res) => res.render('traditional-art',  { homeNav: false }));
+app.get('/portfolio/digital-art',      (req, res) => res.render('digital-art',      { homeNav: false }));
+app.get('/portfolio/generative-art',   (req, res) => res.render('generative-art',   { homeNav: false }));
+
+// UI/UX hub & case studies
+app.get('/portfolio/uiux-design',                    (req, res) => res.render('uiux-design',       { homeNav: false }));
+app.get('/portfolio/uiux-design/democracy-viewer',   (req, res) => res.render('democracy-viewer',  { homeNav: false }));
+app.get('/portfolio/uiux-design/smart-scheduler',    (req, res) => res.render('smart-scheduler',   { homeNav: false }));
+
+// Generative installations
+app.get('/portfolio/generative-art/installation-tree-of-life', (req, res) => res.render('installation-tree-of-life', { homeNav: false }));
+app.get('/portfolio/generative-art/installation-flutter',      (req, res) => res.render('installation-flutter',      { homeNav: false }));
+
+// ASIM 3310
+app.get('/portfolio/asim-3310',              (req, res) => res.render('asim-3310',                 { homeNav: false }));
+app.get('/portfolio/asim-3310/flutter',      (req, res) => res.render('installation-flutter-asim', { homeNav: false }));
+app.get('/portfolio/asim-3310/coloring',     (req, res) => res.render('asim-coloring',             { homeNav: false }));
+app.get('/portfolio/asim-3310/more-work',    (req, res) => res.render('asim-more-work',            { homeNav: false }));
+
+// About & Contact
+app.get('/about',   (req, res) => res.render('about',   { homeNav: false }));
+app.get('/contact', (req, res) => res.render('contact', { homeNav: false }));
+
+// ── CONTACT FORM POST ──
+app.post('/contact', contactLimiter, async (req, res) => {
+  const name = sanitizeHtml(req.body.name || '', { allowedTags: [] });
+  const email = sanitizeHtml(req.body.email || '', { allowedTags: [] });
+  const topic = sanitizeHtml(req.body.topic || '', { allowedTags: [] });
+  const message = sanitizeHtml(req.body.message || '', { allowedTags: [] });
+
+  if (!name || !email || !topic || !message) {
+    return res.status(400).json({ success: false, message: 'Please fill out all required fields.' });
+  }
+
+  if (!checkDailyLimit()) {
+    return res.status(429).json({ success: false, message: 'Daily message limit reached. Please try again tomorrow.' });
+  }
+
+  try {
+    await resend.emails.send({
+      from: 'Portfolio Contact <onboarding@resend.dev>',
+      to: process.env.GMAIL_USER,
+      replyTo: email,
+      subject: `New message from ${name}${topic ? ` — ${topic}` : ''}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        ${topic ? `<p><strong>Topic:</strong> ${topic}</p>` : ''}
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `
+    });
+
+    dailyCount++;
+    res.json({ success: true, message: 'Your message was sent! I\'ll be in touch soon.' });
+  } catch (err) {
+    console.error('Email error:', err);
+    res.status(500).json({ success: false, message: 'Something went wrong. Please try emailing me directly.' });
+  }
 });
+
+app.listen(port, () => console.log(`Application listening at http://localhost:${port}`));
 
 // ── ROUTES ──
 // Home

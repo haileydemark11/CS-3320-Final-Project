@@ -9,6 +9,9 @@ import sanitizeHtml from 'sanitize-html';
 const app = express();
 const port = 8080;
 
+// Trust Render's proxy (required for rate limiter and correct IP detection)
+app.set('trust proxy', 1);
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -39,7 +42,9 @@ function checkDailyLimit() {
 
 // ── NODEMAILER TRANSPORTER ──
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
   auth: {
     user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_PASS
